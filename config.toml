@@ -1,4 +1,4 @@
-baseurl = "https://pi-victor.github.io"
+baseurl = "https://pi-victor.github.io/"
 copyright = "&copy; 2016 Palade Ionuţ Victor"
 languageCode = "en-us"
 theme = "academic"
