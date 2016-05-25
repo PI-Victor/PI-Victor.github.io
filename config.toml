@@ -1,0 +1,109 @@
+baseurl = "https://pi-victor.github.io"
+copyright = "&copy; 2016 Palade Ionuţ Victor"
+languageCode = "en-us"
+theme = "academic"
+
+# Enable analytics by entering your Google Analytics tracking ID
+googleAnalytics = ""
+
+
+[params]
+  name = "Victor Palade"
+  role = "Software Developer"
+  organization = "Red Hat"
+  email = "ipalade@redhat.com"
+
+  # Date format (refer to Go's date format: http://flippinggodateformat.com )
+  #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
+  date_format = "Mon, Jan 2, 2006"
+
+  # Enable global LaTeX math rendering? If false, you can enable it locally on a per page basis.
+  math = false
+
+  # Link custom CSS and JS assets (relative to /static/css and /static/js respectively)
+  custom_css = []
+  custom_js  = []
+
+  # Biography section.
+  # Section will only be displayed if `content/home/about.md` exists.
+  [params.about]
+    interests = ["Linux", "Golang", "Python", "Cloud Computing", "Docker", "Monitoring", "DevOps"]
+    str_interests = "Interests"
+    str_education = "Experience"
+
+    [[params.about.education]]
+      course = "Associate Software Engineer"
+      institution = "Red Hat"
+      year = 2015
+
+    [[params.about.education]]
+      course = "Mobility Unix Administrator"
+      institution = "AT&T"
+      year = 2013
+
+    [[params.about.education]]
+      course = "Network Support Specialist"
+      institution = "AT&T"
+      year = 2012
+
+    [[params.about.education]]
+      course = "Software Developer"
+      institution = "s.c. ResConsult s.r.l."
+      year = 2006
+
+  # Posts section.
+  # Section will only be displayed if there are posts in `content/post/`.
+  [params.posts]
+    count = 5
+    title = "Recent Posts"
+    subtitle = ""
+    str_all = "More Posts"
+    str_read_more = "Read more"
+
+  # Projects section.
+  # Section will only be displayed if there are projects in `content/project/`.
+  [params.projects]
+    title = "Projects"
+    subtitle = ""
+
+  # Contact section.
+  [params.contact]
+    enable = true
+    title = "Contact"
+    subtitle = ""
+    autolink = true  # Automatically link email and phone?
+
+  # Social/Academic Networking
+  #
+  # Icon pack "fa" includes the following social network icons:
+  #   twitter, weibo, linkedin, github, facebook, pinterest, google-plus, youtube, instagram, soundcloud
+  #   For email icon, use "fa" icon pack, "envelope" icon, and "mailto:your@email.com" as the link.
+  #   Full list: https://fortawesome.github.io/Font-Awesome/icons/
+  #
+  # Icon pack "ai" includes the following academic network icons:
+  #   google-scholar, arxiv, orcid, researchgate, mendeley
+  #   Full list: https://jpswalsh.github.io/academicons/
+
+  [[params.social]]
+    icon = "envelope"
+    icon_pack = "fa"
+    link = "mailto:ipalade@redhat.com"
+
+  [[params.social]]
+    icon = "github"
+    icon_pack = "fa"
+    link = "//github.com/pi-victor"
+
+
+# Navigation Links
+#   The weight parameter defines the order that the links will appear in.
+
+[[menu.main]]
+  name = "Home"
+  url = "#top"
+  weight = 1
+
+[[menu.main]]
+  name = "Posts"
+  url = "#posts"
+  weight = 2

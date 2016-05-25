@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on </title>
+    <link>https://pi-victor.github.io/project/</link>
+    <description>Recent content in Projects on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016 Palade Ionuţ Victor</copyright>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pi-victor.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Openshift Origin V3</title>
+      <link>https://pi-victor.github.io/project/origin/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://pi-victor.github.io/project/origin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Starry Night</title>
+      <link>https://pi-victor.github.io/project/writings/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://pi-victor.github.io/project/writings/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
