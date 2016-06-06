@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>https://pi-victor.github.io/post/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016 Palade Ionuţ Victor</copyright>
+    <lastBuildDate>Mon, 06 Jun 2016 14:32:12 +0200</lastBuildDate>
+    <atom:link href="https://pi-victor.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Starting with React</title>
+      <link>https://pi-victor.github.io/post/first/</link>
+      <pubDate>Mon, 06 Jun 2016 14:32:12 +0200</pubDate>
+      
+      <guid>https://pi-victor.github.io/post/first/</guid>
+      <description>&lt;p&gt;Found a couple of interesting things about how to do more with
+&lt;a href=&#34;http://facebook.github.io/react/index.html&#34;&gt;React&lt;/a&gt; and &lt;a href=&#34;https://facebook.github.io/flux/&#34;&gt;Flux&lt;/a&gt;, thought i&amp;rsquo;d share them.&lt;br /&gt;
+&lt;a href=&#34;https://madebymany.com/blog/beyond-the-to-do-app-writing-complex-applications-using-flux-react-js&#34;&gt;This&lt;/a&gt;
+goes through the work flow of building an app with the aforementioned lib and
+pattern and the
+&lt;a href=&#34;https://medium.com/brigade-engineering/what-is-the-flux-application-architecture-b57ebca85b9e#.mse899xsa&#34;&gt;other&lt;/a&gt;
+explains rather simply the approach to building apps with Flux.&lt;br /&gt;
+I like React, i find it, overall, a bit less of a hassle to understand than Ember so i will attempt to start getting more and more familiar with it in my pursuit to have a broader knowledge about both frontend and backend.&lt;br /&gt;
+I never was a fan of javascript, &lt;em&gt;but now i&amp;rsquo;m a ventilator.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
