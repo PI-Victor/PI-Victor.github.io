@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>concourse on Software and Ops</title>
-    <link>http://victor.cloudflavor.io/tags/concourse/</link>
+    <link>https://victor.cloudflavor.io/tags/concourse/</link>
     <description>Recent content in concourse on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="http://victor.cloudflavor.io/tags/concourse/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/concourse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://victor.cloudflavor.io/about/</link>
+      <link>https://victor.cloudflavor.io/about/</link>
       <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
       
-      <guid>http://victor.cloudflavor.io/about/</guid>
+      <guid>https://victor.cloudflavor.io/about/</guid>
       <description>I&amp;rsquo;m Victor, experienced Ops person in public/private cloud (AWS, Kubernetes) and fullstack Dev in Go/Js.
 In another life i was a sysadmin @AT&amp;amp;T, a software developer @Red Hat and a DevOps @adidas.
 Currently a software dev @dectris where i write and maintain kubernetes services for x-ray detectors.

@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Software and Ops</title>
-    <link>http://victor.cloudflavor.io/categories/</link>
+    <link>https://victor.cloudflavor.io/categories/</link>
     <description>Recent content in Categories on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://victor.cloudflavor.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://victor.cloudflavor.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
