@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Software and Ops</title>
+    <link>http://victor.cloudflavor.io/tags/</link>
+    <description>Recent content in Tags on Software and Ops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="http://victor.cloudflavor.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>agile</title>
+      <link>http://victor.cloudflavor.io/tags/agile/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>http://victor.cloudflavor.io/tags/ansible/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>http://victor.cloudflavor.io/tags/aws/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bazel</title>
+      <link>http://victor.cloudflavor.io/tags/bazel/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/bazel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concourse</title>
+      <link>http://victor.cloudflavor.io/tags/concourse/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/concourse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>http://victor.cloudflavor.io/tags/containers/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debugging</title>
+      <link>http://victor.cloudflavor.io/tags/debugging/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitops</title>
+      <link>http://victor.cloudflavor.io/tags/gitops/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/gitops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://victor.cloudflavor.io/tags/go/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grpc</title>
+      <link>http://victor.cloudflavor.io/tags/grpc/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/grpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grpcurl</title>
+      <link>http://victor.cloudflavor.io/tags/grpcurl/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/grpcurl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>helm</title>
+      <link>http://victor.cloudflavor.io/tags/helm/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>http://victor.cloudflavor.io/tags/jenkins/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>http://victor.cloudflavor.io/tags/js/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>http://victor.cloudflavor.io/tags/kubernetes/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes-operators</title>
+      <link>http://victor.cloudflavor.io/tags/kubernetes-operators/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/kubernetes-operators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kustomize</title>
+      <link>http://victor.cloudflavor.io/tags/kustomize/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/kustomize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://victor.cloudflavor.io/tags/linux/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open source</title>
+      <link>http://victor.cloudflavor.io/tags/open-source/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openshift</title>
+      <link>http://victor.cloudflavor.io/tags/openshift/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/openshift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protobuf</title>
+      <link>http://victor.cloudflavor.io/tags/protobuf/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://victor.cloudflavor.io/tags/python/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react-redux</title>
+      <link>http://victor.cloudflavor.io/tags/react-redux/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/react-redux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reflection</title>
+      <link>http://victor.cloudflavor.io/tags/reflection/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/reflection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>http://victor.cloudflavor.io/tags/rust/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>http://victor.cloudflavor.io/tags/terraform/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>http://victor.cloudflavor.io/tags/tips/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>http://victor.cloudflavor.io/tags/typescript/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vue</title>
+      <link>http://victor.cloudflavor.io/tags/vue/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci/cd</title>
+      <link>http://victor.cloudflavor.io/tags/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/tags/ci/cd/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

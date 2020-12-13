@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/about/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/agile/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/ansible/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/aws/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/bazel/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/concourse/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/containers/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/debugging/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/gitops/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/go/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/grpc/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/grpcurl/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/helm/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/jenkins/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/js/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/kubernetes/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/kubernetes-operators/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/kustomize/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/linux/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/open-source/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/openshift/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/posts/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/protobuf/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/python/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/react-redux/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/reflection/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/rust/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/terraform/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/tips/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/typescript/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/vue/</loc>
+    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://victor.cloudflavor.io/tags/ci/cd/</loc>
+  </url>
+  
+</urlset>

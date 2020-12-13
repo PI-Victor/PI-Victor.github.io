@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tips on Software and Ops</title>
+    <link>http://victor.cloudflavor.io/tags/tips/</link>
+    <description>Recent content in tips on Software and Ops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="http://victor.cloudflavor.io/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Make your life with gRPC easier</title>
+      <link>http://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>http://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/</guid>
+      <description>Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are wroth mentioning for the uninitiated.
+Design documentation I found the Google API design documentation useful for making you adopt some standards for your API early on. You don&amp;rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth.</description>
+    </item>
+    
+  </channel>
+</rss>
