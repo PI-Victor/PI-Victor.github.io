@@ -1,4 +1,4 @@
-baseURL = "http://victor.cloudflavor.io/"
+baseURL = "https://victor.cloudflavor.io/"
 languageCode = "en-us"
 title = "Software and Ops"
 theme = "terminal"
