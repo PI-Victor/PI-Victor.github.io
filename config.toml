@@ -1,0 +1,46 @@
+baseURL = "http://victor.cloudflavor.io/"
+languageCode = "en-us"
+title = "Software and Ops"
+theme = "terminal"
+paginate = 5
+enableEmoji = true
+footnoteRerturnLinkContents = "↩"
+publishDir = "docs"
+
+[params]
+fullWidthTheme = false
+centerTheme = true
+AuthorName = "PI-Victor"
+
+[[menu.main]]
+identifier = "posts"
+name = "blog"
+url = "/posts"
+
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about"
+
+[[menu.main]]
+identifier = "github"
+name = "github"
+url = "https://github.com/pi-victor"
+
+[permalinks]
+  posts = "/:year/:month/:title/"
+
+[params.logo]
+logoText = "Cloudflavor"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = false
+    lineNoStart = 0
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "dracula"
+    tabWidth = 4
