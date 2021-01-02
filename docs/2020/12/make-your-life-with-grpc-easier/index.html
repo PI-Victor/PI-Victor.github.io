@@ -6,8 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are wroth mentioning for the uninitiated.
-Design documentation I found the Google API design documentation useful for making you adopt some standards for your API early on. You don&amp;rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth." />
+<meta name="description" content="Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are worth mentioning for the uninitiated.
+Design documentation I found the Google API design documentation useful for making you adopt some standards for your APIs early on. You don&amp;rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/" />
@@ -37,8 +37,8 @@ Design documentation I found the Google API design documentation useful for maki
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Make your life with gRPC easier">
-<meta property="og:description" content="Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are wroth mentioning for the uninitiated.
-Design documentation I found the Google API design documentation useful for making you adopt some standards for your API early on. You don&amp;rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth." />
+<meta property="og:description" content="Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are worth mentioning for the uninitiated.
+Design documentation I found the Google API design documentation useful for making you adopt some standards for your APIs early on. You don&amp;rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth." />
 <meta property="og:url" content="https://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/" />
 <meta property="og:site_name" content="Software and Ops" />
 
@@ -169,10 +169,10 @@ Design documentation I found the Google API design documentation useful for maki
 
   <div class="post-content"><div>
         <p>Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there
-are things that are wroth mentioning for the uninitiated.</p>
+are things that are worth mentioning for the uninitiated.</p>
 <h3 id="design-documentation">Design documentation<a href="#design-documentation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>I found the <a href="https://cloud.google.com/apis/design">Google API design documentation</a> useful for making you
-adopt some standards for your API early on. You don&rsquo;t have to follow it word by word, but overall it
+adopt some standards for your APIs early on. You don&rsquo;t have to follow it word by word, but overall it
 definitely has its use. From <a href="https://cloud.google.com/apis/design/standard_methods">mapping http methods to gRPC methods</a>
 to <a href="https://cloud.google.com/apis/design/naming_convention">naming conventions</a> that help you design your
 API intuitive for future growth.</p>
@@ -181,7 +181,7 @@ API intuitive for future growth.</p>
 grpcurl is not only able to behave like regular curl but it can also be used to explore your API, this can
 be achieved in two ways:</p>
 <ul>
-<li>enable reflection in your go code</li>
+<li>enable reflection in your code</li>
 <li>passing the protoset source file as a parameter</li>
 <li>passing the protoset compiled bin file</li>
 </ul>
@@ -213,8 +213,8 @@ be achieved in two ways:</p>
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
@@ -229,8 +229,8 @@ be achieved in two ways:</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="21"><a style="outline: none; text-decoration:none; color:inherit" href="#21">21</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="22"><a style="outline: none; text-decoration:none; color:inherit" href="#22">22</a>
 </span></code></pre></td>
@@ -238,8 +238,8 @@ be achieved in two ways:</p>
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">import</span> (
     <span style="color:#f1fa8c">&#34;net&#34;</span>
     
-    <span style="color:#f1fa8c">&#34;google.golang.org/grpc/reflection&#34;</span>
-    <span style="color:#f1fa8c">&#34;google.golang.org/grpc&#34;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#f1fa8c">&#34;google.golang.org/grpc/reflection&#34;</span>
+</span>    <span style="color:#f1fa8c">&#34;google.golang.org/grpc&#34;</span>
 )
 
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
@@ -254,13 +254,14 @@ be achieved in two ways:</p>
     <span style="color:#6272a4">// register your gRPC implementation first
 </span><span style="color:#6272a4"></span>    pbv1.<span style="color:#50fa7b">RegisterStorageApiService</span>(grpcServer, <span style="color:#50fa7b">newServer</span>())
     <span style="color:#6272a4">// enable reflection 
-</span><span style="color:#6272a4"></span>    reflection.<span style="color:#50fa7b">Register</span>(grpcServer)
-    grpcServer.<span style="color:#50fa7b">Serve</span>(list)
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#6272a4"></span>    reflection.<span style="color:#50fa7b">Register</span>(grpcServer)
+</span>    grpcServer.<span style="color:#50fa7b">Serve</span>(list)
     <span style="color:#ff79c6">...</span>
 }
 </code></pre></td></tr></table>
 </div>
-</div><p>Assuming that the server is running on &ldquo;tcp://localhost:8099&rdquo;,
+</div>
+<p>Assuming that the server is running on <code>tcp://localhost:8099</code>,
 you can now explore the API by using <code>list</code> and <code>describe</code>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -320,9 +321,8 @@ $ grpcurl --plaintext localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiServ
 </div>
 </div><h4 id="exploring-using-the-protoset-source-file">Exploring using the protoset source file<a href="#exploring-using-the-protoset-source-file" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>In certaing situations you might not want to make the API publicly available, epsecially on the internet.
-This type of information exposed can become a security concern and might expose information that should
-not be publicly available.</p>
-<p>Without reflection enable, we&rsquo;re unable to browse the API like we did above.</p>
+This type of information can become a security concern if it is made publicly available.</p>
+<p>Without reflection enabled, we&rsquo;re unable to browse the API like we did above.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0">0</a>
@@ -448,10 +448,10 @@ service StorageApiService <span style="color:#ff79c6">{</span>
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="debugging">Debugging<a href="#debugging" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<p>Exporting <code>GODEBUG=http2debug=2</code> locally, in the container or in the k8s pod where the grpc server instance
+<p>Exporting <code>GODEBUG=http2debug=2</code> locally, in the container or in the k8s pod where the gRPC server instance
 is currently running is a godsend for troubleshooting problems with incoming requests and also checking if
-you requests are actually hitting the service instance.</p>
-<p>From the CLI, as mentioned above</p>
+your requests are actually hitting the server.</p>
+<p>From the CLI, as mentioned above:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
@@ -480,7 +480,8 @@ you requests are actually hitting the service instance.</p>
 <span style="color:#ff79c6">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>STDOUT of the gRPC server (alternatively this shows up in your container logs)</p>
+</div><p>STDOUT of the gRPC server (alternatively this shows up in your container logs). Lines 12 is the exact request
+that that server received.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
@@ -495,8 +496,8 @@ you requests are actually hitting the service instance.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
@@ -516,17 +517,17 @@ you requests are actually hitting the service instance.</p>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote WINDOW_UPDATE <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">4</span> <span style="color:#ff79c6">(</span>conn<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">incr</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span style="color:#8be9fd;font-style:italic">read</span> PING <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>ACK <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span>
-&amp;v1.GetBucketsRequest<span style="color:#ff79c6">{</span>state:impl.MessageState<span style="color:#ff79c6">{</span>NoUnkeyedLiterals:pragma.NoUnkeyedLiterals<span style="color:#ff79c6">{}</span>, DoNotCompare:pragma.DoNotCompare<span style="color:#ff79c6">{}</span>, DoNotCopy:pragma.DoNotCopy<span style="color:#ff79c6">{}</span>, atomicMessageInfo:<span style="color:#ff79c6">(</span>*impl.MessageInfo<span style="color:#ff79c6">)(</span>0xc0002b0138<span style="color:#ff79c6">)}</span>, sizeCache:0, unknownFields:<span style="color:#ff79c6">[]</span>uint8<span style="color:#ff79c6">(</span>nil<span style="color:#ff79c6">)</span>, Name:<span style="color:#f1fa8c">&#34;&#34;</span><span style="color:#ff79c6">}</span>
-2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote HEADERS <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>END_HEADERS <span style="color:#8be9fd;font-style:italic">stream</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">14</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">&amp;v1.GetBucketsRequest<span style="color:#ff79c6">{</span>state:impl.MessageState<span style="color:#ff79c6">{</span>NoUnkeyedLiterals:pragma.NoUnkeyedLiterals<span style="color:#ff79c6">{}</span>, DoNotCompare:pragma.DoNotCompare<span style="color:#ff79c6">{}</span>, DoNotCopy:pragma.DoNotCopy<span style="color:#ff79c6">{}</span>, atomicMessageInfo:<span style="color:#ff79c6">(</span>*impl.MessageInfo<span style="color:#ff79c6">)(</span>0xc0002b0138<span style="color:#ff79c6">)}</span>, sizeCache:0, unknownFields:<span style="color:#ff79c6">[]</span>uint8<span style="color:#ff79c6">(</span>nil<span style="color:#ff79c6">)</span>, Name:<span style="color:#f1fa8c">&#34;&#34;</span><span style="color:#ff79c6">}</span>
+</span>2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote HEADERS <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>END_HEADERS <span style="color:#8be9fd;font-style:italic">stream</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">14</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote DATA <span style="color:#8be9fd;font-style:italic">stream</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">27</span> <span style="color:#8be9fd;font-style:italic">data</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x00\x00\x00\x00\x16\n\t\n\abucket1\n\t\n\abucket2&#34;</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote HEADERS <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>END_STREAM|END_HEADERS <span style="color:#8be9fd;font-style:italic">stream</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">24</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span style="color:#8be9fd;font-style:italic">read</span> WINDOW_UPDATE <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">4</span> <span style="color:#ff79c6">(</span>conn<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">incr</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">27</span>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span style="color:#8be9fd;font-style:italic">read</span> PING <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span>
-2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>ACK <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span>
-</code></pre></td></tr></table>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>ACK <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span></code></pre></td></tr></table>
 </div>
-</div><h3 id="grpc-access-over-k8s-nginx-ingress">gRPC access over k8s nginx ingress<a href="#grpc-access-over-k8s-nginx-ingress" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>To expose a gRPC service for company wide use there a few options.</p>
+</div>
+<h3 id="grpc-access-over-k8s-nginx-ingress">gRPC access over k8s nginx ingress<a href="#grpc-access-over-k8s-nginx-ingress" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>To expose a gRPC service from kubernetes for company wide use there a few options.</p>
 <h4 id="loadbalancer-service-type">LoadBalancer service type<a href="#loadbalancer-service-type" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>If you&rsquo;re in a public cloud environment you can expose the service via the service type LoadBalancer and
 you&rsquo;re pretty much done.</p>
@@ -536,10 +537,10 @@ and do the exact same thing as above.</p>
 <p><strong>NOTE:</strong> This example disregards more advanced ingresses and gateways such as <a href="https://istio.io/latest/">Istio</a>,
 <a href="https://doc.traefik.io/traefik/user-guides/grpc/">Traekif</a> or
 <a href="https://www.haproxy.com/products/haproxy-enterprise-kubernetes-ingress-controller/">HAProxy</a> and only addresses
-a stadard <a href="https://www.nginx.com/products/nginx-ingress-controller/">NGINX ingress controller</a>.</p>
+a standard <a href="https://www.nginx.com/products/nginx-ingress-controller/">NGINX ingress controller</a>.</p>
 <p>If none of these are viable options to you or you prefer that your gRPC service is exposed via a URL rather than
 an IP address, then you can make the kubernetes ingress forward gRPC requests to the service by adding a simple
-annotation to your ingress.</p>
+<a href="https://kubernetes.github.io/ingress-nginx/examples/grpc/">annotation to your ingress</a>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
@@ -586,8 +587,8 @@ annotation to your ingress.</p>
           <span style="color:#ff79c6">servicePort</span>: grpcport</code></pre></td></tr></table>
 </div>
 </div>
-<p>The catch here is that this ingress should have https. If you do automatic https at the nginx controller level or
-you have a tls section in the ingress definition above, that is up to you. <strong>gRPC over http doesn&rsquo;t work</strong>.
+<p>The catch here is that this ingress should have <code>https</code>. If you do automatic https at the nginx controller level or
+you have a <code>TLS</code> section in the ingress definition above, that is up to you. <strong>gRPC over http doesn&rsquo;t work</strong>.
 Another thing to keep in mind is that your nginx ingress controller needs to be <code>v0.30</code> or above.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -649,7 +650,7 @@ intuitive APIs but also help developers to understand better how to explore, deb
 gRPC APIs.</p>
 <p>In the next posts i will also discuss <a href="https://github.com/grpc/grpc-web">grpc-web</a> for enabling a frontend
 app to talk to a gRPC server, <a href="https://github.com/grpc-ecosystem/grpc-gateway">grpc-gateway</a> for
-transcoding REST API calls to gRPC calls and also documentating through proto annotations the REST API
+transcoding REST API calls to gRPC calls and also documentating, through proto annotations, the REST API
 endpoints with the <a href="https://swagger.io/specification/v2/">OpenAPIv2 spec</a> and
 <a href="https://github.com/grpc-ecosystem/go-grpc-middleware">gRPC interceptors</a> as gRPC middleware.</p>
 
@@ -668,7 +669,7 @@ endpoints with the <a href="https://swagger.io/specification/v2/">OpenAPIv2 spec
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>

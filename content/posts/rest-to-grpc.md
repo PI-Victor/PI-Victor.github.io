@@ -14,12 +14,12 @@ tags:
 ---
 
 Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there
-are things that are wroth mentioning for the uninitiated.
+are things that are worth mentioning for the uninitiated.
 
 ### Design documentation
 
 I found the [Google API design documentation](https://cloud.google.com/apis/design) useful for making you
-adopt some standards for your API early on. You don't have to follow it word by word, but overall it
+adopt some standards for your APIs early on. You don't have to follow it word by word, but overall it
 definitely has its use. From [mapping http methods to gRPC methods](https://cloud.google.com/apis/design/standard_methods)
 to [naming conventions](https://cloud.google.com/apis/design/naming_convention) that help you design your
 API intuitive for future growth.
@@ -27,10 +27,10 @@ API intuitive for future growth.
 ### Exploring gRPC APIs at runtime
 
 You can explore gRPC APIs at runtime by using [grpcurl](https://github.com/fullstorydev/grpcurl).
-grpcurl is not only able to behave like regular curl but it can also be used to explore your API, this can 
+grpcurl is not only able to behave like regular curl but it can also be used to explore your API, this can
 be achieved in two ways:
 
-* enable reflection in your go code
+* enable reflection in your code
 * passing the protoset source file as a parameter
 * passing the protoset compiled bin file
 
@@ -50,7 +50,7 @@ service StorageApiService {
 
 Import reflection and register the gRPC server instance.
 
-```go
+{{< highlight go "linenoos=table,hl_lines=4 20" >}}
 import (
     "net"
     
@@ -74,9 +74,9 @@ func main() {
     grpcServer.Serve(list)
     ...
 }
-```
+{{</ highlight >}}
 
-Assuming that the server is running on "tcp://localhost:8099",
+Assuming that the server is running on `tcp://localhost:8099`,
 you can now explore the API by using `list` and `describe`.
 
 ```bash
@@ -110,10 +110,10 @@ $ grpcurl --plaintext localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiServ
 #### Exploring using the protoset source file
 
 In certaing situations you might not want to make the API publicly available, epsecially on the internet.
-This type of information exposed can become a security concern and might expose information that should
-not be publicly available.  
+This type of information can become a security concern if it is made publicly available.  
 
-Without reflection enable, we're unable to browse the API like we did above.
+Without reflection enabled, we're unable to browse the API like we did above.
+
 ```bash
 $ grpcurl --plaintext localhost:8099 list
 Failed to list services: server does not support the reflection API
@@ -188,11 +188,12 @@ service StorageApiService {
 
 #### Debugging
 
-Exporting `GODEBUG=http2debug=2` locally, in the container or in the k8s pod where the grpc server instance 
-is currently running is a godsend for troubleshooting problems with incoming requests and also checking if 
-you requests are actually hitting the service instance.
+Exporting `GODEBUG=http2debug=2` locally, in the container or in the k8s pod where the gRPC server instance
+is currently running is a godsend for troubleshooting problems with incoming requests and also checking if
+your requests are actually hitting the server.  
 
-From the CLI, as mentioned above
+From the CLI, as mentioned above:
+
 ```bash
 grpcurl --plaintext  -protoset StorageApiService.protoset  localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiService.GetBuckets
 {
@@ -207,9 +208,10 @@ grpcurl --plaintext  -protoset StorageApiService.protoset  localhost:8099 codefl
 }
 ```
 
-STDOUT of the gRPC server (alternatively this shows up in your container logs)
+STDOUT of the gRPC server (alternatively this shows up in your container logs). Lines 12 is the exact request
+ that that server received.
 
-```bash
+{{< highlight bash "linenoos=table,hl_lines=13" >}}
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: read HEADERS flags=END_HEADERS stream=1 len=93
 2020/12/13 16:39:22 http2: decoded hpack field header field ":method" = "POST"
 2020/12/13 16:39:22 http2: decoded hpack field header field ":scheme" = "http"
@@ -229,11 +231,11 @@ STDOUT of the gRPC server (alternatively this shows up in your container logs)
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: read WINDOW_UPDATE len=4 (conn) incr=27
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: read PING len=8 ping="\x02\x04\x10\x10\t\x0e\a\a"
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING flags=ACK len=8 ping="\x02\x04\x10\x10\t\x0e\a\a"
-```
+{{< /highlight >}}
 
 ### gRPC access over k8s nginx ingress
 
-To expose a gRPC service for company wide use there a few options.
+To expose a gRPC service from kubernetes for company wide use there a few options.
 
 #### LoadBalancer service type
 
@@ -248,11 +250,11 @@ and do the exact same thing as above.
 **NOTE:** This example disregards more advanced ingresses and gateways such as [Istio](https://istio.io/latest/),
 [Traekif](https://doc.traefik.io/traefik/user-guides/grpc/) or 
 [HAProxy](https://www.haproxy.com/products/haproxy-enterprise-kubernetes-ingress-controller/) and only addresses
-a stadard [NGINX ingress controller](https://www.nginx.com/products/nginx-ingress-controller/).
+a standard [NGINX ingress controller](https://www.nginx.com/products/nginx-ingress-controller/).
 
 If none of these are viable options to you or you prefer that your gRPC service is exposed via a URL rather than
 an IP address, then you can make the kubernetes ingress forward gRPC requests to the service by adding a simple
-annotation to your ingress.
+[annotation to your ingress](https://kubernetes.github.io/ingress-nginx/examples/grpc/).
 
 {{< highlight yaml "linenoos=table,hl_lines=6" >}}
 apiVersion: networking.k8s.io/v1beta1
@@ -277,8 +279,8 @@ spec:
           servicePort: grpcport
 {{< /highlight >}}
 
-The catch here is that this ingress should have https. If you do automatic https at the nginx controller level or
-you have a tls section in the ingress definition above, that is up to you. **gRPC over http doesn't work**.
+The catch here is that this ingress should have `https`. If you do automatic https at the nginx controller level or
+you have a `TLS` section in the ingress definition above, that is up to you. **gRPC over http doesn't work**.
 Another thing to keep in mind is that your nginx ingress controller needs to be `v0.30` or above.  
 
 {{< highlight go "hl_lines=8" >}}
@@ -309,11 +311,11 @@ func main() {
 {{< /highlight >}}
 
 In conclusion, i think that these things would help anyone in their quest of building resilient and
-intuitive APIs but also help developers to understand better how to explore, debug and troubleshoot 
+intuitive APIs but also help developers to understand better how to explore, debug and troubleshoot
 gRPC APIs.
 
 In the next posts i will also discuss [grpc-web](https://github.com/grpc/grpc-web) for enabling a frontend
 app to talk to a gRPC server, [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) for
-transcoding REST API calls to gRPC calls and also documentating through proto annotations the REST API
+transcoding REST API calls to gRPC calls and also documentating, through proto annotations, the REST API
 endpoints with the [OpenAPIv2 spec](https://swagger.io/specification/v2/) and
 [gRPC interceptors](https://github.com/grpc-ecosystem/go-grpc-middleware) as gRPC middleware.
