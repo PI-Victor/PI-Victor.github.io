@@ -6,7 +6,18 @@
     <description>Recent content in grpc on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jan 2021 03:06:04 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC Web</title>
+      <link>https://victor.cloudflavor.io/2021/01/grpc-web/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/2021/01/grpc-web/</guid>
+      <description>In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
+gRPC and the web Browsers can&amp;rsquo;t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
+These solutions are differently implemented in both libraries that emerged to tackle this problem.</description>
+    </item>
+    
     <item>
       <title>Make your life with gRPC easier</title>
       <link>https://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/</link>

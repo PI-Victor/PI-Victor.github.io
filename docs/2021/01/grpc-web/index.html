@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>gRPC Web :: Software and Ops</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
+gRPC and the web Browsers can&amp;rsquo;t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
+These solutions are differently implemented in both libraries that emerged to tackle this problem." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://victor.cloudflavor.io/2021/01/grpc-web/" />
+
+
+
+
+<link rel="stylesheet" href="https://victor.cloudflavor.io/assets/style.css">
+
+  <link rel="stylesheet" href="assets/%25!s%28%3cnil%3e%29.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://victor.cloudflavor.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://victor.cloudflavor.io/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="gRPC Web">
+<meta property="og:description" content="In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
+gRPC and the web Browsers can&amp;rsquo;t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
+These solutions are differently implemented in both libraries that emerged to tackle this problem." />
+<meta property="og:url" content="https://victor.cloudflavor.io/2021/01/grpc-web/" />
+<meta property="og:site_name" content="Software and Ops" />
+
+  
+    <meta property="og:image" content="img/favicon/%!s().png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-01-03 03:06:04 &#43;0100 CET" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://victor.cloudflavor.io/">
+  <div class="logo">
+    Cloudflavor
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">about</a></li>
+        
+      
+        
+          <li><a href="/posts">blog</a></li>
+        
+      
+        
+          <li><a href="https://github.com/pi-victor">github</a></li>
+        
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">about</a></li>
+      
+    
+      
+        <li><a href="/posts">blog</a></li>
+      
+    
+      
+        <li><a href="https://github.com/pi-victor">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://victor.cloudflavor.io/2021/01/grpc-web/">gRPC Web</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-01-03 
+      </span>
+    
+    
+    <span class="post-author">:: PI-Victor</span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://victor.cloudflavor.io/tags/grpc/">grpc</a>&nbsp;
+    
+    #<a href="https://victor.cloudflavor.io/tags/protobuf/">protobuf</a>&nbsp;
+    
+    #<a href="https://victor.cloudflavor.io/tags/typescript/">typescript</a>&nbsp;
+    
+    #<a href="https://victor.cloudflavor.io/tags/grpc-web/">grpc-web</a>&nbsp;
+    
+    #<a href="https://victor.cloudflavor.io/tags/frontend/">frontend</a>&nbsp;
+    
+    #<a href="https://victor.cloudflavor.io/tags/react/">react</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>In this posts we will explore how to make a frontend, written in
+React, talk to a gRPC service.</p>
+<h2 id="grpc-and-the-web">gRPC and the web<a href="#grpc-and-the-web" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Browsers <a href="https://grpc.io/blog/state-of-grpc-web/#the-grpc-web-spec">can&rsquo;t talk to gRPC services natively</a>
+so the solution came in the form of a proxy that could translate the frontend http requests
+made by the browser to gRPC calls that the backend gRPC service could understand.<br>
+These solutions are differently implemented in both libraries that emerged to tackle this
+problem.</p>
+<h2 id="google-grpc-web">Google gRPC-web<a href="#google-grpc-web" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://github.com/grpc/grpc-web">This library</a> uses <a href="https://en.wikipedia.org/wiki/XMLHttpRequest">XHR</a> transport only so that
+it guarantees backwards compatibility with older browsers. It also provides no proxy
+out of the bag to translate the frontend requests to native gRPC calls, in order to use this,
+you need something like Envoy between the frontend and your gRPC service.<br>
+Using this is pretty straight forward:</p>
+<ul>
+<li>Generate the commonjs (or experimental typescript) client stubs, based on your proto file set</li>
+<li>Point the frontend client instance created using the above generated stubs towards the Envoy proxy</li>
+<li>Configure the Envoy proxy to point to your gRPC service instance</li>
+<li>profit!</li>
+</ul>
+<h2 id="improbable-grpc-web">Improbable gRPC-web<a href="#improbable-grpc-web" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>If you are in Go land, this is probably the best library to use since it has a
+<a href="https://github.com/improbable-eng/grpc-web/tree/master/go/grpcweb">Go library that provides hassle free translation of browser requests</a>, that you can use directly in your Go code.
+If you are not in Go land, that&rsquo;s okay, they also provide a
+<a href="https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy">proxy binary</a> that can do exactly what the library does, this can make it easier to avoid heavier solutions such as Envoy.
+Using the improbable library has the following steps:</p>
+<ul>
+<li>Generate the stubs using commonjs (optionally the typescript definitions using the <a href="https://github.com/improbable-eng/ts-protoc-gen">ts-protoc-gen</a> plugin)</li>
+<li>Point your frontend client instance directly at your gRPC service</li>
+<li>In your Go code wrap the gRPC server with the translation capable library and pass it to a http server instance:</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#ff79c6">import</span> (
+    <span style="color:#f1fa8c">&#34;github.com/improbable-eng/grpc-web/go/grpcweb&#34;</span>
+    <span style="color:#f1fa8c">&#34;github.com/gorilla/mux&#34;</span>
+    <span style="color:#f1fa8c">&#34;google.golang.org/grpc&#34;</span>
+)
+
+grpcServer <span style="color:#ff79c6">:=</span> grpc.<span style="color:#50fa7b">NewServer</span>()
+wrappedGrpcServer <span style="color:#ff79c6">:=</span> grpcweb.<span style="color:#50fa7b">WrapServer</span>(grpcServer)
+router <span style="color:#ff79c6">:=</span> mux.<span style="color:#50fa7b">NewRouter</span>()
+<span style="color:#6272a4">// stripPrefix is a function that will strip the &#39;/grpc&#39; from the url path so that
+</span><span style="color:#6272a4">// the incoming requests is handled properly.
+</span><span style="color:#6272a4"></span>router.<span style="color:#50fa7b">PathPrefix</span>(<span style="color:#f1fa8c">&#34;/grpc&#34;</span>).<span style="color:#50fa7b">Handler</span>(<span style="color:#50fa7b">stripPrefix</span>(<span style="color:#f1fa8c">&#34;/grpc&#34;</span>, wrappedGrpcServer))
+httpServer <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>http.Server{
+    Addr:         address,
+    Handler:      router,
+}
+<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> httpServer.<span style="color:#50fa7b">ListenAndServe</span>(); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> http.ErrServerClosed {
+        <span style="color:#8be9fd;font-style:italic">panic</span>(err)
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="generating-frontend-client-stubs">Generating frontend client stubs<a href="#generating-frontend-client-stubs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>In order to generate the client stubs to use within your chosen library you need the protoc
+plugin. <a href="https://github.com/grpc/grpc-web#code-generator-plugin">Download and install</a> the
+protoc-gen-grpc-web plugin and generate the stubs:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0">0</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1">1</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2">2</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ protoc --proto_path<span style="color:#ff79c6">=</span>my/relative/path <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>    --js_out<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">import_style</span><span style="color:#ff79c6">=</span>commonjs:path/to/frontend/api <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>    --grpc-web_out<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">import_style</span><span style="color:#ff79c6">=</span>commonjs,mode<span style="color:#ff79c6">=</span>grpcwebtext:path/to/frontend/api <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>    my-protoset.proto
+</code></pre></td></tr></table>
+</div>
+</div><p>This will generate two files, <code>myservice_pb.js</code> and <code>myservice_grpc_web_pb.js</code>. The first
+one contains the protobuf messages translated to javascript, and another that basically
+has the grpc-web service implementation that allows you to create a client instance and
+send requests to the backend.</p>
+<p>in your <code>src/v1/api/index.js</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="20"><a style="outline: none; text-decoration:none; color:inherit" href="#20">20</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> { MyServicePromiseClient } from <span style="color:#f1fa8c">&#39;./v1/myservice_grpc_web_pb.js&#39;</span>;
+<span style="color:#ff79c6">import</span> {
+    ListMessageRequest,
+    MyMessageMetadata,
+} from <span style="color:#f1fa8c">&#39;./v1/myservice_pb.js&#39;</span>
+
+<span style="color:#6272a4">// create a new client with the ip address of the gRPC service
+</span><span style="color:#6272a4">// this can be either the Envoy proxy or your native gRPC service 
+</span><span style="color:#6272a4">// wrapped in the improbable proxy library.
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> MyServicePromiseClient(<span style="color:#f1fa8c">&#39;http://127.0.0.1:8090&#39;</span>)
+
+<span style="color:#ff79c6">const</span> ListSomething <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">async</span> =&gt; {
+    <span style="color:#8be9fd;font-style:italic">let</span> listMessageRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ListMessageRequest();
+    <span style="color:#8be9fd;font-style:italic">let</span> metadata <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> MyMessageMetadata();
+    metadata.setMetadataTimestamp(<span style="color:#8be9fd;font-style:italic">Date</span>.now())
+    listMessageRequest.setMetadata(metadata)
+    <span style="color:#ff79c6">const</span> resp <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> client.listMessage(listMessageRequest)
+    <span style="color:#ff79c6">return</span> resp.toObject()
+}
+
+<span style="color:#ff79c6">export</span> { ListSomething };
+</code></pre></td></tr></table>
+</div>
+</div><p>for react: in your <code>src/components/mycomponent/component.js</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="0"><a style="outline: none; text-decoration:none; color:inherit" href="#0"> 0</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="1"><a style="outline: none; text-decoration:none; color:inherit" href="#1"> 1</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="2"><a style="outline: none; text-decoration:none; color:inherit" href="#2"> 2</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="3"><a style="outline: none; text-decoration:none; color:inherit" href="#3"> 3</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="4"><a style="outline: none; text-decoration:none; color:inherit" href="#4"> 4</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="5"><a style="outline: none; text-decoration:none; color:inherit" href="#5"> 5</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="6"><a style="outline: none; text-decoration:none; color:inherit" href="#6"> 6</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="7"><a style="outline: none; text-decoration:none; color:inherit" href="#7"> 7</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="8"><a style="outline: none; text-decoration:none; color:inherit" href="#8"> 8</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="9"><a style="outline: none; text-decoration:none; color:inherit" href="#9"> 9</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="10"><a style="outline: none; text-decoration:none; color:inherit" href="#10">10</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="11"><a style="outline: none; text-decoration:none; color:inherit" href="#11">11</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="12"><a style="outline: none; text-decoration:none; color:inherit" href="#12">12</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="13"><a style="outline: none; text-decoration:none; color:inherit" href="#13">13</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="14"><a style="outline: none; text-decoration:none; color:inherit" href="#14">14</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="15"><a style="outline: none; text-decoration:none; color:inherit" href="#15">15</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="16"><a style="outline: none; text-decoration:none; color:inherit" href="#16">16</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="17"><a style="outline: none; text-decoration:none; color:inherit" href="#17">17</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="18"><a style="outline: none; text-decoration:none; color:inherit" href="#18">18</a>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="19"><a style="outline: none; text-decoration:none; color:inherit" href="#19">19</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> React, { useEffect } from <span style="color:#f1fa8c">&#39;react&#39;</span>;
+
+<span style="color:#ff79c6">import</span> { ListSomething } from <span style="color:#f1fa8c">&#39;../api&#39;</span>;
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> <span style="color:#8be9fd;font-style:italic">function</span> MyComponent() {
+    <span style="color:#ff79c6">const</span> [list, setList] <span style="color:#ff79c6">=</span> React.useState([]);
+    <span style="color:#ff79c6">const</span> [err, setError] <span style="color:#ff79c6">=</span> React.useState(<span style="color:#ff79c6">null</span>);
+    
+    useEffect(() =&gt; {
+        <span style="color:#ff79c6">async</span> <span style="color:#8be9fd;font-style:italic">function</span> listSomething() {
+            <span style="color:#ff79c6">try</span> {
+                <span style="color:#ff79c6">const</span> resp <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> ListSomething();
+                setList(resp.myList);
+            } <span style="color:#ff79c6">catch</span>(err) {
+                setError(err)
+            }
+        }
+        listSomething()
+    }, [])
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>The above simply does a request to the gRPC server to fetch a list and store
+the result in the component&rsquo;s state. This uses the API we defined above to
+create the request and attach metadata to it. You can also pass params to
+the API and set fields and other metadata, such as auth tokens, labels et all
+based on your needs.</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I hope this post has cleared up some basics about building frontend applications
+that can talk to gRPC services. The grpc-web client can do both unary calls but
+also streaming. For the different options (server side streaming, client side
+streaming, bi-directional) you have to consult the gRPC-web library documentation
+to see which one is supported.</p>
+
+      </div></div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://victor.cloudflavor.io/assets/main.js"></script>
+<script src="https://victor.cloudflavor.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

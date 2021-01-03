@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grpc-web on Software and Ops</title>
+    <link>https://victor.cloudflavor.io/tags/grpc-web/</link>
+    <description>Recent content in grpc-web on Software and Ops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jan 2021 03:06:04 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/grpc-web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC Web</title>
+      <link>https://victor.cloudflavor.io/2021/01/grpc-web/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/2021/01/grpc-web/</guid>
+      <description>In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
+gRPC and the web Browsers can&amp;rsquo;t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
+These solutions are differently implemented in both libraries that emerged to tackle this problem.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,61 @@
     <description>Recent content in Tags on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Dec 2020 05:02:27 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jan 2021 03:06:04 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>frontend</title>
+      <link>https://victor.cloudflavor.io/tags/frontend/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/frontend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grpc</title>
+      <link>https://victor.cloudflavor.io/tags/grpc/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/grpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grpc-web</title>
+      <link>https://victor.cloudflavor.io/tags/grpc-web/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/grpc-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protobuf</title>
+      <link>https://victor.cloudflavor.io/tags/protobuf/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>https://victor.cloudflavor.io/tags/react/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://victor.cloudflavor.io/tags/typescript/</link>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>agile</title>
       <link>https://victor.cloudflavor.io/tags/agile/</link>
@@ -85,15 +139,6 @@
       <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
       
       <guid>https://victor.cloudflavor.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>grpc</title>
-      <link>https://victor.cloudflavor.io/tags/grpc/</link>
-      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/grpc/</guid>
       <description></description>
     </item>
     
@@ -188,15 +233,6 @@
     </item>
     
     <item>
-      <title>protobuf</title>
-      <link>https://victor.cloudflavor.io/tags/protobuf/</link>
-      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/protobuf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>python</title>
       <link>https://victor.cloudflavor.io/tags/python/</link>
       <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
@@ -247,15 +283,6 @@
       <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
       
       <guid>https://victor.cloudflavor.io/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>typescript</title>
-      <link>https://victor.cloudflavor.io/tags/typescript/</link>
-      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/typescript/</guid>
       <description></description>
     </item>
     
