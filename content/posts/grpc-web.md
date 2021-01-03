@@ -147,7 +147,6 @@ create the request and attach metadata to it. You can also pass params to
 the API and set fields and other metadata, such as auth tokens, labels et all
  based on your needs.
 
-
 ## Conclusion
 
 I hope this post has cleared up some basics about building frontend applications
