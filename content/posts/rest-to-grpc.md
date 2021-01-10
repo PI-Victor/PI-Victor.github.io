@@ -109,7 +109,7 @@ $ grpcurl --plaintext localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiServ
 
 #### Exploring using the protoset source file
 
-In certaing situations you might not want to make the API publicly available, epsecially on the internet.
+In certain situations you might not want to make the API publicly available, especially on the internet.
 This type of information can become a security concern if it is made publicly available.  
 
 Without reflection enabled, we're unable to browse the API like we did above.
@@ -233,7 +233,7 @@ STDOUT of the gRPC server (alternatively this shows up in your container logs). 
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING flags=ACK len=8 ping="\x02\x04\x10\x10\t\x0e\a\a"
 {{< /highlight >}}
 
-### gRPC access over k8s nginx ingress
+### gRPC access over k8s NGINX ingress
 
 To expose a gRPC service from kubernetes for company wide use there a few options.
 
@@ -248,7 +248,7 @@ and do the exact same thing as above.
 #### NGINX k8s Ingress
 
 **NOTE:** This example disregards more advanced ingresses and gateways such as [Istio](https://istio.io/latest/),
-[Traekif](https://doc.traefik.io/traefik/user-guides/grpc/) or 
+[Traekif](https://doc.traefik.io/traefik/user-guides/grpc/) or
 [HAProxy](https://www.haproxy.com/products/haproxy-enterprise-kubernetes-ingress-controller/) and only addresses
 a standard [NGINX ingress controller](https://www.nginx.com/products/nginx-ingress-controller/).
 
@@ -316,6 +316,6 @@ gRPC APIs.
 
 In the next posts i will also discuss [grpc-web](https://github.com/grpc/grpc-web) for enabling a frontend
 app to talk to a gRPC server, [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) for
-transcoding REST API calls to gRPC calls and also documentating, through proto annotations, the REST API
+transcoding REST API calls to gRPC calls and also documenting, through proto annotations, the REST API
 endpoints with the [OpenAPIv2 spec](https://swagger.io/specification/v2/) and
 [gRPC interceptors](https://github.com/grpc-ecosystem/go-grpc-middleware) as gRPC middleware.

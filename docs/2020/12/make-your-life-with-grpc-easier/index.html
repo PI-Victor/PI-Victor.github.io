@@ -320,7 +320,7 @@ $ grpcurl --plaintext localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiServ
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="exploring-using-the-protoset-source-file">Exploring using the protoset source file<a href="#exploring-using-the-protoset-source-file" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<p>In certaing situations you might not want to make the API publicly available, epsecially on the internet.
+<p>In certain situations you might not want to make the API publicly available, especially on the internet.
 This type of information can become a security concern if it is made publicly available.</p>
 <p>Without reflection enabled, we&rsquo;re unable to browse the API like we did above.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -526,7 +526,7 @@ that that server received.</p>
 2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING <span style="color:#8be9fd;font-style:italic">flags</span><span style="color:#ff79c6">=</span>ACK <span style="color:#8be9fd;font-style:italic">len</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span> <span style="color:#8be9fd;font-style:italic">ping</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;\x02\x04\x10\x10\t\x0e\a\a&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<h3 id="grpc-access-over-k8s-nginx-ingress">gRPC access over k8s nginx ingress<a href="#grpc-access-over-k8s-nginx-ingress" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="grpc-access-over-k8s-nginx-ingress">gRPC access over k8s NGINX ingress<a href="#grpc-access-over-k8s-nginx-ingress" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>To expose a gRPC service from kubernetes for company wide use there a few options.</p>
 <h4 id="loadbalancer-service-type">LoadBalancer service type<a href="#loadbalancer-service-type" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>If you&rsquo;re in a public cloud environment you can expose the service via the service type LoadBalancer and
@@ -650,7 +650,7 @@ intuitive APIs but also help developers to understand better how to explore, deb
 gRPC APIs.</p>
 <p>In the next posts i will also discuss <a href="https://github.com/grpc/grpc-web">grpc-web</a> for enabling a frontend
 app to talk to a gRPC server, <a href="https://github.com/grpc-ecosystem/grpc-gateway">grpc-gateway</a> for
-transcoding REST API calls to gRPC calls and also documentating, through proto annotations, the REST API
+transcoding REST API calls to gRPC calls and also documenting, through proto annotations, the REST API
 endpoints with the <a href="https://swagger.io/specification/v2/">OpenAPIv2 spec</a> and
 <a href="https://github.com/grpc-ecosystem/go-grpc-middleware">gRPC interceptors</a> as gRPC middleware.</p>
 
