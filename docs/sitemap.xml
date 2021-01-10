@@ -4,7 +4,47 @@
   
   <url>
     <loc>https://victor.cloudflavor.io/tags/frontend/</loc>
-    <lastmod>2021-01-03T03:06:04+01:00</lastmod>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/tags/javascript/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/posts/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/tags/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/tags/vue/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/tags/vue-router/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://victor.cloudflavor.io/tags/vuex/</loc>
+    <lastmod>2021-01-10T13:48:52+01:00</lastmod>
   </url>
   
   <url>
@@ -23,27 +63,12 @@
   </url>
   
   <url>
-    <loc>https://victor.cloudflavor.io/posts/</loc>
-    <lastmod>2021-01-03T03:06:04+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://victor.cloudflavor.io/tags/protobuf/</loc>
     <lastmod>2021-01-03T03:06:04+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://victor.cloudflavor.io/tags/react/</loc>
-    <lastmod>2021-01-03T03:06:04+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://victor.cloudflavor.io/</loc>
-    <lastmod>2021-01-03T03:06:04+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://victor.cloudflavor.io/tags/</loc>
     <lastmod>2021-01-03T03:06:04+01:00</lastmod>
   </url>
   
@@ -184,11 +209,6 @@
   
   <url>
     <loc>https://victor.cloudflavor.io/tags/tips/</loc>
-    <lastmod>2020-12-13T05:02:27+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://victor.cloudflavor.io/tags/vue/</loc>
     <lastmod>2020-12-13T05:02:27+01:00</lastmod>
   </url>
   

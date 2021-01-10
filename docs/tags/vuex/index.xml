@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vue on Software and Ops</title>
-    <link>https://victor.cloudflavor.io/tags/vue/</link>
-    <description>Recent content in vue on Software and Ops</description>
+    <title>vuex on Software and Ops</title>
+    <link>https://victor.cloudflavor.io/tags/vuex/</link>
+    <description>Recent content in vuex on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jan 2021 13:48:52 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jan 2021 13:48:52 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/vuex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vue vs React Part I (Vue&#39;s prolific simplicity)</title>
       <link>https://victor.cloudflavor.io/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/</link>
@@ -16,19 +16,6 @@
       <description>Yep, it&amp;rsquo;s the beginning of 2021 and it&amp;rsquo;s one of those posts! I decided there aren&amp;rsquo;t enough of them on the internet and thought i might indulge in writing one 😆.
 This comes from my perspective as a beginner in both frameworks and i will be talking about vue 2 not vue 3, i haven&amp;rsquo;t rolled out, ported or even read anything on vue 3 yet.
 Initially i wanted to write a single post, but there&amp;rsquo;s a lot of example code to cover, so i decided to split it in three instead.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://victor.cloudflavor.io/about/</link>
-      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/about/</guid>
-      <description>I&amp;rsquo;m Victor, experienced Ops person in public/private cloud (AWS, Kubernetes) and fullstack Dev in Go/Js.
-In another life i was a sysadmin @AT&amp;amp;T, a software developer @Red Hat and a DevOps @adidas.
-Currently a software dev @dectris where i write and maintain kubernetes services for x-ray detectors.
-Sometimes i work on open source projects @Cloudflavor.
-In my free time i like to travel, hike and freedive.</description>
     </item>
     
   </channel>
