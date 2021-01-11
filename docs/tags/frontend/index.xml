@@ -6,18 +6,7 @@
     <description>Recent content in frontend on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jan 2021 13:48:52 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Vue vs React Part I (Vue&#39;s prolific simplicity)</title>
-      <link>https://victor.cloudflavor.io/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/</guid>
-      <description>Yep, it&amp;rsquo;s the beginning of 2021 and it&amp;rsquo;s one of those posts! I decided there aren&amp;rsquo;t enough of them on the internet and thought i might indulge in writing one 😆.
-This comes from my perspective as a beginner in both frameworks and i will be talking about vue 2 not vue 3, i haven&amp;rsquo;t rolled out, ported or even read anything on vue 3 yet.
-Initially i wanted to write a single post, but there&amp;rsquo;s a lot of example code to cover, so i decided to split it in three instead.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 03 Jan 2021 03:06:04 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC Web</title>
       <link>https://victor.cloudflavor.io/2021/01/grpc-web/</link>

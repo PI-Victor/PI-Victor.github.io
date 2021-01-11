@@ -6,49 +6,13 @@
     <description>Recent content in Tags on Software and Ops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jan 2021 13:48:52 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jan 2021 03:06:04 +0100</lastBuildDate><atom:link href="https://victor.cloudflavor.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>frontend</title>
       <link>https://victor.cloudflavor.io/tags/frontend/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
+      <pubDate>Sun, 03 Jan 2021 03:06:04 +0100</pubDate>
       
       <guid>https://victor.cloudflavor.io/tags/frontend/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>javascript</title>
-      <link>https://victor.cloudflavor.io/tags/javascript/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vue</title>
-      <link>https://victor.cloudflavor.io/tags/vue/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vue-router</title>
-      <link>https://victor.cloudflavor.io/tags/vue-router/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/vue-router/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vuex</title>
-      <link>https://victor.cloudflavor.io/tags/vuex/</link>
-      <pubDate>Sun, 10 Jan 2021 13:48:52 +0100</pubDate>
-      
-      <guid>https://victor.cloudflavor.io/tags/vuex/</guid>
       <description></description>
     </item>
     
@@ -319,6 +283,15 @@
       <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
       
       <guid>https://victor.cloudflavor.io/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vue</title>
+      <link>https://victor.cloudflavor.io/tags/vue/</link>
+      <pubDate>Sun, 13 Dec 2020 05:02:27 +0100</pubDate>
+      
+      <guid>https://victor.cloudflavor.io/tags/vue/</guid>
       <description></description>
     </item>
     

@@ -22,7 +22,7 @@ i decided to split it in three instead.
 
 See also:
 
-* [The problem with React Part 2]()
+* [The problem with React Part 2](/2021/01/vue-vs-react-part-ii-my-problem-with-react/)
 * [Vue and React Comparison Part 3]()
 
 Let me explain the needs that have surfaced while building fullstack apps in my current job:
