@@ -195,7 +195,7 @@ Now your components can take advantage of state and update.
 
 My basic knowledge of frontend comes mostly from pair programming with my colleague
 [Pablo](https://github.com/escodebar).  
-He said and interesting thing, that Vue is about conventions and i believe this plays
+He said an interesting thing, that Vue is about conventions and i believe this plays
 a major role when trying to learn a new technology.  
 
 If a framework defines conventions for how to structure your application, it makes it
