@@ -1,7 +1,7 @@
 ---
 title: "Vue vs React Part I (Vue's prolific simplicity)"
 date: 2021-01-10T13:48:52+01:00
-draft: true
+draft: false
 author: PI-Victor
 tags:
 - vue
