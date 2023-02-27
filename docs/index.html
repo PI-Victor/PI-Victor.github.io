@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.81.0" />
+	<meta name="generator" content="Hugo 0.110.0">
   
     <title>Software and Ops</title>
   
@@ -10,23 +10,29 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
+
 <link rel="canonical" href="https://victor.cloudflavor.io/" />
 
 
 
 
-<link rel="stylesheet" href="https://victor.cloudflavor.io/assets/style.css">
-
-  <link rel="stylesheet" href="assets/%25!s%28%3cnil%3e%29.css">
 
 
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://victor.cloudflavor.io/styles.css">
 
 
 
 
-<link rel="apple-touch-icon" href="https://victor.cloudflavor.io/img/apple-touch-icon-192x192.png">
 
-  <link rel="shortcut icon" href="https://victor.cloudflavor.io/img/favicon/orange.png">
+
+
+  <link rel="shortcut icon" href="https://victor.cloudflavor.io/img/theme-colors/orange.png">
+  <link rel="apple-touch-icon" href="https://victor.cloudflavor.io/img/theme-colors/orange.png">
 
 
 
@@ -45,8 +51,8 @@
     <meta property="og:image" content="img/favicon/%!s().png">
   
 
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
 
 
 
@@ -79,12 +85,34 @@
 
     </div>
     
-      <div class="menu-trigger">menu</div>
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">about</a></li>
+        
+      
+        
+          <li><a href="/posts">blog</a></li>
+        
+      
+        
+          <li><a href="https://github.com/pi-victor">github</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
     
   </div>
   
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
     
       
         
@@ -99,25 +127,6 @@
           <li><a href="https://github.com/pi-victor">github</a></li>
         
       
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/about">about</a></li>
-      
-    
-      
-        <li><a href="/posts">blog</a></li>
-      
-    
-      
-        <li><a href="https://github.com/pi-victor">github</a></li>
-      
-    
     
   </ul>
 </nav>
@@ -140,16 +149,19 @@
     
 
     
-      <div class="post on-list">
+      <article class="post on-list">
         <h1 class="post-title">
           <a href="https://victor.cloudflavor.io/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/">Vue vs React Part I (Vue&rsquo;s prolific simplicity)</a>
         </h1>
+
         <div class="post-meta">
-          <span class="post-date">
-            2021-01-10
-          </span>
           
-            <span class="post-author">:: PI-Victor</span>
+            <time class="post-date">
+              2021-01-10 ::
+            </time>
+          
+          
+            <span class="post-author">PI-Victor</span>
           
         </div>
 
@@ -171,34 +183,35 @@
 
         
 
+
         <div class="post-content">
           
-          
-          Yep, it’s the beginning of 2021 and it’s one of those posts! I decided there aren’t enough of them on the internet and thought i might indulge in writing one 😆.
-This comes from my perspective as a beginner in both frameworks and i will be talking about vue 2 not vue 3, i haven’t rolled out, ported or even read anything on vue 3 yet.
-Initially i wanted to write a single post, but there’s a lot of example code to cover, so i decided to split it in three instead.
-          
+            Yep, it&rsquo;s the beginning of 2021 and it&rsquo;s one of those posts! I decided there aren&rsquo;t enough of them on the internet and thought i might indulge in writing one 😆.
+This comes from my perspective as a beginner in both frameworks and i will be talking about vue 2 not vue 3, i haven&rsquo;t rolled out, ported or even read anything on vue 3 yet.
+Initially i wanted to write a single post, but there&rsquo;s a lot of example code to cover, so i decided to split it in three instead.
           
         </div>
 
         
-        <div>
-          <a class="read-more button"
-            href="/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/"> →</a>
-        </div>
+          <div>
+            <a class="read-more button" href="/2021/01/vue-vs-react-part-i-vues-prolific-simplicity/"> →</a>
+          </div>
         
-      </div>
+      </article>
     
-      <div class="post on-list">
+      <article class="post on-list">
         <h1 class="post-title">
           <a href="https://victor.cloudflavor.io/2021/01/grpc-web/">gRPC Web</a>
         </h1>
+
         <div class="post-meta">
-          <span class="post-date">
-            2021-01-03
-          </span>
           
-            <span class="post-author">:: PI-Victor</span>
+            <time class="post-date">
+              2021-01-03 ::
+            </time>
+          
+          
+            <span class="post-author">PI-Victor</span>
           
         </div>
 
@@ -222,34 +235,35 @@ Initially i wanted to write a single post, but there’s a lot of example code t
 
         
 
+
         <div class="post-content">
           
-          
-          In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
-gRPC and the web Browsers can’t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
+            In this posts we will explore how to make a frontend, written in React, talk to a gRPC service.
+gRPC and the web Browsers can&rsquo;t talk to gRPC services natively so the solution came in the form of a proxy that could translate the frontend http requests made by the browser to gRPC calls that the backend gRPC service could understand.
 These solutions are differently implemented in both libraries that emerged to tackle this problem.
-          
           
         </div>
 
         
-        <div>
-          <a class="read-more button"
-            href="/2021/01/grpc-web/"> →</a>
-        </div>
+          <div>
+            <a class="read-more button" href="/2021/01/grpc-web/"> →</a>
+          </div>
         
-      </div>
+      </article>
     
-      <div class="post on-list">
+      <article class="post on-list">
         <h1 class="post-title">
           <a href="https://victor.cloudflavor.io/2020/12/make-your-life-with-grpc-easier/">Make your life with gRPC easier</a>
         </h1>
+
         <div class="post-meta">
-          <span class="post-date">
-            2020-12-13
-          </span>
           
-            <span class="post-author">:: PI-Victor</span>
+            <time class="post-date">
+              2020-12-13 ::
+            </time>
+          
+          
+            <span class="post-author">PI-Victor</span>
           
         </div>
 
@@ -275,23 +289,22 @@ These solutions are differently implemented in both libraries that emerged to ta
 
         
 
+
         <div class="post-content">
           
-          
-          Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are worth mentioning for the uninitiated.
-Design documentation I found the Google API design documentation useful for making you adopt some standards for your APIs early on. You don’t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth.
-          
+            Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there are things that are worth mentioning for the uninitiated.
+Design documentation I found the Google API design documentation useful for making you adopt some standards for your APIs early on. You don&rsquo;t have to follow it word by word, but overall it definitely has its use. From mapping http methods to gRPC methods to naming conventions that help you design your API intuitive for future growth.
           
         </div>
 
         
-        <div>
-          <a class="read-more button"
-            href="/2020/12/make-your-life-with-grpc-easier/"> →</a>
-        </div>
+          <div>
+            <a class="read-more button" href="/2020/12/make-your-life-with-grpc-easier/"> →</a>
+          </div>
         
-      </div>
+      </article>
     
+
     <div class="pagination">
   <div class="pagination__buttons">
     
@@ -308,17 +321,19 @@ Design documentation I found the Google API design documentation useful for maki
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
       </div>
   </div>
 </footer>
 
-<script src="https://victor.cloudflavor.io/assets/main.js"></script>
-<script src="https://victor.cloudflavor.io/assets/prism.js"></script>
 
 
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
 
 
 
