@@ -23,7 +23,7 @@ marked.setOptions({
 marked.use(customHeadingId({}));
 
 async function cleanUp() {
-  const publicDir = "./public";
+  const publicDir = "./docs";
 
   try {
     await Deno.remove(publicDir, { recursive: true });
@@ -94,7 +94,7 @@ async function generatePages(): Promise<Post[]> {
 
     for (const post of posts) {
       const contents = marked.parse(post.contents);
-      const filePath = `./public`;
+      const filePath = `./docs`;
 
       try {
         const body = Handlebars.compile(template, { noEscape: true });
@@ -121,12 +121,12 @@ async function copyAssets() {
   const assetsPath = "./assets";
 
   try {
-    await Deno.mkdirSync("./public/assets");
+    await Deno.mkdirSync("./docs/assets");
 
     for await (const asset of Deno.readDir(assetsPath)) {
       await Deno.copyFile(
         `${assetsPath}/${asset.name}`,
-        `./public/assets/${asset.name}`,
+        `./docs/assets/${asset.name}`,
       );
     }
   } catch (e) {
@@ -142,7 +142,7 @@ async function generateIndex(posts: Post[]) {
     const body = Handlebars.compile(indexTemplate, { noEscape: true });
 
     const pages = posts.map((post) => {
-      post.reference = post.reference.replace("./public/", "");
+      post.reference = post.reference.replace("./docs/", "");
       return post;
     });
 
@@ -170,7 +170,7 @@ async function generateIndex(posts: Post[]) {
     ];
 
     await Deno.writeTextFile(
-      "./public/index.html",
+      "./docs/index.html",
       body({ content, pages, anchors }),
     );
   } catch (e) {
@@ -184,13 +184,13 @@ async function generateNotes(posts: Post[]) {
     const body = Handlebars.compile(notesTemplate, { noEscape: true });
 
     const pages = posts.map((post) => {
-      post.reference = post.reference.replace("./public/", "");
+      post.reference = post.reference.replace("./docs/", "");
       post.contents = post.contents.slice(0, 110);
       return post;
     });
 
     await Deno.writeTextFile(
-      "./public/notes.html",
+      "./docs/notes.html",
       body({ pages }),
     );
   } catch (e) {
