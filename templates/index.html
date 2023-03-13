@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.cdnfonts.com/css/raleway-5"
+      rel="stylesheet" />
+    <link
+      href="assets/main.css"
+      rel="stylesheet" />
+    <title>Victor's spot</title>
+  </head>
+  <body>
+    <div
+      class="container"
+      id="content">
+      <div class="row">
+        <div
+          class="container"
+          style="display: inline-flex; text-align center">
+          <h5><a href="index.html">[Home]</a></h5>
+          <h5><a href="notes.html">[Notes]</a></h5>
+          <h5><a href="projects.html">[Projects]</a></h5>
+        </div>
+      </div>
+      <div
+        class="row"
+        style="padding-top: 30px">
+        <div class="container two columns">
+          <p>Blog entries</p>
+          {{#each pages}}
+          <p>
+            <a href="{{this.reference}}"> {{this.title}}</a>
+          </p>
+          {{/each}}
+        </div>
+        <div class="container eight columns">{{content}}</div>
+        <div class="container two columns">
+          <p>Fast Anchors</p>
+          {{#each anchors}}
+          <p>
+            <a href="#{{this.reference}}">{{this.title}}</a>
+          </p>
+          {{/each}}
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          style="text-align: center; padding-top: 15px">
+          <p>
+            Made by me, compiled with
+            <a href="https://github.com/pi-victor/pi-victor.github.io"
+              >typescript and deno</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

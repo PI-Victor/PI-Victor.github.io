@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"
+      integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.cdnfonts.com/css/raleway-5"
+      rel="stylesheet" />
+    <link
+      href="assets/main.css"
+      rel="stylesheet" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div
+      class="container"
+      id="main">
+      <div class="row">
+        <div class="container">
+          <a
+            link="{{home}}"
+            href="index.html">
+            Home
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          id="content">
+          {{ contents }}
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          id="slugs">
+          {{#each slugs}}
+          <a>#{{this}}&nbsp;</a>
+          {{/each}}
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          style="text-align: center; padding-top: 15px">
+          <p>
+            Made by me, compiled with
+            <a href="https://github.com/pi-victor/pi-victor.github.io"
+              >typescript and deno</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</html>

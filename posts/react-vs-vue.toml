@@ -1,0 +1,13 @@
+[post]
+title = "Vue vs React"
+author = "Victor Palade"
+draft = false
+slugs = [
+    "vue",
+    "frontend",
+    "react",
+    "javascript",
+    "vuex",
+    "vue-router",
+]
+date = 2021-01-10T13:48:52+01:00

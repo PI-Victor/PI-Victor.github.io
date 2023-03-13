@@ -1,0 +1,28 @@
+{
+  "name": "pi-victor.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "PATH=$PATH:./node_modules/.bin/ deno run --allow-read --allow-write transpile.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pi-victor/pi-victor.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pi-victor/pi-victor.github.io/issues"
+  },
+  "homepage": "https://github.com/pi-victor/pi-victor.github.io#readme",
+  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "highlight.js": "^11.7.0",
+    "marked": "^4.2.12",
+    "marked-custom-heading-id": "^2.0.0",
+    "toml": "^3.0.0",
+    "typescript": "^4.9.5"
+  }
+}

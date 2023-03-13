@@ -1,0 +1,6 @@
+Build
+----
+
+```bash
+$ yarn build
+```

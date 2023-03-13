@@ -1,0 +1,12 @@
+[post]
+title = "About gRPC and gRPC-web"
+author = "Victor Palade"
+draft = false
+slugs = [
+    "gRPC",
+    "gRPC-web",
+    "Go",
+    "React",
+    "JavaScript",
+]
+date = 2021-01-03T03:06:04+01:00

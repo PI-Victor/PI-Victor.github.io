@@ -1,0 +1,14 @@
+[post]
+title = "Make your life with gRPC easier"
+author = "Victor Palade"
+draft = false
+slugs = [
+    "grpc",
+    "go",
+    "protobuf",
+    "reflection",
+    "grpcurl",
+    "debugging",
+    "tips"
+]
+date = 2020-12-13T05:02:27+01:00

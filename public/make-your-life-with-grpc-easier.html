@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"
+      integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.cdnfonts.com/css/raleway-5"
+      rel="stylesheet" />
+    <link
+      href="assets/main.css"
+      rel="stylesheet" />
+    <title>Make your life with gRPC easier</title>
+  </head>
+  <body>
+    <div
+      class="container"
+      id="main">
+      <div class="row">
+        <div class="container">
+          <a
+            link=""
+            href="index.html">
+            Home
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          id="content">
+          <p>Earlier this year i started to write a lot of gRPC services and after a while fiddling around, there
+are things that are worth mentioning for the uninitiated.</p>
+<h3 id="design-documentation">Design documentation</h3>
+<p>I found the <a href="https://cloud.google.com/apis/design">Google API design documentation</a> useful for making you
+adopt some standards for your APIs early on. You don&#39;t have to follow it word by word, but overall it
+definitely has its use. From <a href="https://cloud.google.com/apis/design/standard_methods">mapping http methods to gRPC methods</a>
+to <a href="https://cloud.google.com/apis/design/naming_convention">naming conventions</a> that help you design your
+API intuitive for future growth.</p>
+<h3 id="exploring-grpc-apis-at-runtime">Exploring gRPC APIs at runtime</h3>
+<p>You can explore gRPC APIs at runtime by using <a href="https://github.com/fullstorydev/grpcurl">grpcurl</a>.
+grpcurl is not only able to behave like regular curl but it can also be used to explore your API, this can
+be achieved in two ways:</p>
+<ul>
+<li>enable reflection in your code</li>
+<li>passing the protoset source file as a parameter</li>
+<li>passing the protoset compiled bin file</li>
+</ul>
+<h4 id="enabling-and-exploring-with-reflection">Enabling and exploring with reflection</h4>
+<p>Given the following protobuf API:</p>
+<pre><code class="hljs language-proto">service StorageApiService {
+    rpc GetBuckets(GetBucketsRequest) returns (GetBucketsResponse) {}
+    message GetBucketRequest {}
+    message GetBucketsResponse {
+        repeated Bucket buckets = 1;
+    }
+}
+</code></pre>
+<p>Import reflection and register the gRPC server instance.</p>
+<pre><code class="hljs language-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;net&quot;</span>
+    
+    <span class="hljs-string">&quot;google.golang.org/grpc/reflection&quot;</span>
+    <span class="hljs-string">&quot;google.golang.org/grpc&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+    ...
+    lis, err := net.Listen(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;0.0.0.0:8099&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-built_in">panic</span>(err)
+    }
+    <span class="hljs-keyword">defer</span> lis.Close()
+    <span class="hljs-keyword">var</span> opts []grpc.ServerOption
+    grpcServer := grpc.NewServer(opts...)
+    <span class="hljs-comment">// register your gRPC implementation first</span>
+    pbv1.RegisterStorageApiService(grpcServer, newServer())
+    <span class="hljs-comment">// enable reflection </span>
+    reflection.Register(grpcServer)
+    grpcServer.Serve(list)
+    ...
+}
+</code></pre>
+<p>Assuming that the server is running on <code>tcp://localhost:8099</code>,
+you can now explore the API by using <code>list</code> and <code>describe</code>.</p>
+<pre><code class="hljs language-bash">$ grpcurl --plaintext localhost:8099 list
+codeflavor.grpcrest.proto.v1.StorageApiService
+grpc.reflection.v1alpha.ServerReflection
+
+$ grpcurl --plaintext localhost:8099 describe codeflavor.grpcrest.proto.v1.StorageApiService
+codeflavor.grpcrest.proto.v1.StorageApiService is a service:
+service StorageApiService {
+  rpc GetBuckets ( .codeflavor.grpcrest.proto.v1.GetBucketsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetBucketsResponse ) {}
+}
+
+$ grpcurl --plaintext localhost:8099 describe codeflavor.grpcrest.proto.v1.StorageApiService.GetBuckets
+codeflavor.grpcrest.proto.v1.StorageApiService.GetBuckets is a method:
+rpc GetBuckets ( .codeflavor.grpcrest.proto.v1.GetBucketsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetBucketsResponse ) {}
+
+$ grpcurl --plaintext localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiService.GetBuckets
+{
+  <span class="hljs-string">&quot;buckets&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;bucket1&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;bucket2&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<h4 id="exploring-using-the-protoset-source-file">Exploring using the protoset source file</h4>
+<p>In certain situations you might not want to make the API publicly available, especially on the internet.
+This type of information can become a security concern if it is made publicly available.  </p>
+<p>Without reflection enabled, we&#39;re unable to browse the API like we did above.</p>
+<pre><code class="hljs language-bash">$ grpcurl --plaintext localhost:8099 list
+Failed to list services: server does not support the reflection API
+</code></pre>
+<p>However we can pass the protoset source file:</p>
+<p><strong>NOTE</strong>: If you import special proto files, like i do below, the paths need to be passed to <code>grpcurl</code>. In
+my example i use the <code>grpc-gateway</code> annotations file (which i&#39;ll write a post about soon, ignore the
+<code>option</code> entry for now).</p>
+<pre><code class="hljs language-bash">grpcurl --plaintext -import-path internal -import-path /usr/local/include/ -proto proto/grpcrest.proto localhost:8099 list
+codeflavor.grpcrest.proto.v1.StorageApiService
+
+grpcurl --plaintext -import-path internal -import-path /usr/local/include -proto proto/grpcrest.proto localhost:8099 describe
+codeflavor.grpcrest.proto.v1.StorageApiService is a service:
+service StorageApiService {
+  rpc CreateBucket ( .codeflavor.grpcrest.proto.v1.CreateBucketRequest ) returns ( .codeflavor.grpcrest.proto.v1.CreateBucketResponse ) {
+    option (.google.api.http) = { post:<span class="hljs-string">&quot;/v1/buckets&quot;</span> body:<span class="hljs-string">&quot;*&quot;</span> response_body:<span class="hljs-string">&quot;bucket&quot;</span>  };
+  }
+  rpc GetBuckets ( .codeflavor.grpcrest.proto.v1.GetBucketsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetBucketsResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets&quot;</span>  };
+  }
+  rpc GetObject ( .codeflavor.grpcrest.proto.v1.GetObjectRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetObjectResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets/{bucket}/objects/*&quot;</span>  };
+  }
+  rpc GetObjects ( .codeflavor.grpcrest.proto.v1.GetObjectsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetObjectsResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets/{bucket}/objects&quot;</span>  };
+  }
+  rpc GetResult ( .codeflavor.grpcrest.proto.v1.GetResultRequest ) returns ( stream .codeflavor.grpcrest.proto.v1.GetResultResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/results&quot;</span>  };
+  }
+}
+</code></pre>
+<h4 id="exploring-using-the-compiled-protoset-bin-file">Exploring using the compiled protoset bin file</h4>
+<p>Alternatively you can pass the compiled protoset binary file.</p>
+<p>Compile the protoset bin file:</p>
+<pre><code class="hljs language-bash">$ protoc --proto_path=. \
+    --descriptor_set_out=StorageApiService.protoset \
+    --include_imports internal/proto/grpcrest.proto
+</code></pre>
+<p>Use the protoset bin file to describe the API</p>
+<pre><code class="hljs language-bash">$ grpcurl --plaintext  -protoset StorageApiService.protoset  localhost:8099 describe
+codeflavor.grpcrest.proto.v1.StorageApiService is a service:
+service StorageApiService {
+  rpc CreateBucket ( .codeflavor.grpcrest.proto.v1.CreateBucketRequest ) returns ( .codeflavor.grpcrest.proto.v1.CreateBucketResponse ) {
+    option (.google.api.http) = { post:<span class="hljs-string">&quot;/v1/buckets&quot;</span> body:<span class="hljs-string">&quot;*&quot;</span> response_body:<span class="hljs-string">&quot;bucket&quot;</span>  };
+  }
+  rpc GetBuckets ( .codeflavor.grpcrest.proto.v1.GetBucketsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetBucketsResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets&quot;</span>  };
+  }
+  rpc GetObject ( .codeflavor.grpcrest.proto.v1.GetObjectRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetObjectResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets/{bucket}/objects/*&quot;</span>  };
+  }
+  rpc GetObjects ( .codeflavor.grpcrest.proto.v1.GetObjectsRequest ) returns ( .codeflavor.grpcrest.proto.v1.GetObjectsResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/buckets/{bucket}/objects&quot;</span>  };
+  }
+  rpc GetResult ( .codeflavor.grpcrest.proto.v1.GetResultRequest ) returns ( stream .codeflavor.grpcrest.proto.v1.GetResultResponse ) {
+    option (.google.api.http) = { get:<span class="hljs-string">&quot;/v1/results&quot;</span>  };
+  }
+}
+</code></pre>
+<h4 id="debugging">Debugging</h4>
+<p>Exporting <code>GODEBUG=http2debug=2</code> locally, in the container or in the k8s pod where the gRPC server instance
+is currently running is a godsend for troubleshooting problems with incoming requests and also checking if
+your requests are actually hitting the server.  </p>
+<p>From the CLI, as mentioned above:</p>
+<pre><code class="hljs language-bash">grpcurl --plaintext  -protoset StorageApiService.protoset  localhost:8099 codeflavor.grpcrest.proto.v1.StorageApiService.GetBuckets
+{
+  <span class="hljs-string">&quot;buckets&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;bucket1&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;bucket2&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<p>STDOUT of the gRPC server (alternatively this shows up in your container logs). Lines 12 is the exact request
+ that that server received.</p>
+<pre><code class="hljs language-bash">2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span class="hljs-built_in">read</span> HEADERS flags=END_HEADERS stream=1 len=93
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;:method&quot;</span> = <span class="hljs-string">&quot;POST&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;:scheme&quot;</span> = <span class="hljs-string">&quot;http&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;:path&quot;</span> = <span class="hljs-string">&quot;/codeflavor.grpcrest.proto.v1.StorageApiService/GetBuckets&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;:authority&quot;</span> = <span class="hljs-string">&quot;localhost:8099&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;content-type&quot;</span> = <span class="hljs-string">&quot;application/grpc&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;user-agent&quot;</span> = <span class="hljs-string">&quot;grpc-go/1.30.0&quot;</span>
+2020/12/13 16:39:22 http2: decoded hpack field header field <span class="hljs-string">&quot;te&quot;</span> = <span class="hljs-string">&quot;trailers&quot;</span>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span class="hljs-built_in">read</span> DATA flags=END_STREAM stream=1 len=5 data=<span class="hljs-string">&quot;\x00\x00\x00\x00\x00&quot;</span>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote WINDOW_UPDATE len=4 (conn) incr=5
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING len=8 ping=<span class="hljs-string">&quot;\x02\x04\x10\x10\t\x0e\a\a&quot;</span>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span class="hljs-built_in">read</span> PING flags=ACK len=8 ping=<span class="hljs-string">&quot;\x02\x04\x10\x10\t\x0e\a\a&quot;</span>
+&amp;v1.GetBucketsRequest{state:impl.MessageState{NoUnkeyedLiterals:pragma.NoUnkeyedLiterals{}, DoNotCompare:pragma.DoNotCompare{}, DoNotCopy:pragma.DoNotCopy{}, atomicMessageInfo:(*impl.MessageInfo)(0xc0002b0138)}, sizeCache:0, unknownFields:[]uint8(nil), Name:<span class="hljs-string">&quot;&quot;</span>}
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote HEADERS flags=END_HEADERS stream=1 len=14
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote DATA stream=1 len=27 data=<span class="hljs-string">&quot;\x00\x00\x00\x00\x16\n\t\n\abucket1\n\t\n\abucket2&quot;</span>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote HEADERS flags=END_STREAM|END_HEADERS stream=1 len=24
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span class="hljs-built_in">read</span> WINDOW_UPDATE len=4 (conn) incr=27
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: <span class="hljs-built_in">read</span> PING len=8 ping=<span class="hljs-string">&quot;\x02\x04\x10\x10\t\x0e\a\a&quot;</span>
+2020/12/13 16:39:22 http2: Framer 0xc0003341c0: wrote PING flags=ACK len=8 ping=<span class="hljs-string">&quot;\x02\x04\x10\x10\t\x0e\a\a&quot;</span>
+</code></pre>
+<h3 id="grpc-access-over-k8s-nginx-ingress">gRPC access over k8s NGINX ingress</h3>
+<p>To expose a gRPC service from kubernetes for company wide use there a few options.</p>
+<h4 id="loadbalancer-service-type">LoadBalancer service type</h4>
+<p>If you&#39;re in a public cloud environment you can expose the service via the service type LoadBalancer and
+you&#39;re pretty much done.</p>
+<p>If you&#39;re in a private cloud and have no F5 Load balancer, you can use <a href="https://metallb.universe.tf/">metallb</a>
+and do the exact same thing as above.</p>
+<h4 id="nginx-k8s-ingress">NGINX k8s Ingress</h4>
+<p><strong>NOTE:</strong> This example disregards more advanced ingresses and gateways such as <a href="https://istio.io/latest/">Istio</a>,
+<a href="https://doc.traefik.io/traefik/user-guides/grpc/">Traekif</a> or
+<a href="https://www.haproxy.com/products/haproxy-enterprise-kubernetes-ingress-controller/">HAProxy</a> and only addresses
+a standard <a href="https://www.nginx.com/products/nginx-ingress-controller/">NGINX ingress controller</a>.</p>
+<p>If none of these are viable options to you or you prefer that your gRPC service is exposed via a URL rather than
+an IP address, then you can make the kubernetes ingress forward gRPC requests to the service by adding a simple
+<a href="https://kubernetes.github.io/ingress-nginx/examples/grpc/">annotation to your ingress</a>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">networking.k8s.io/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Ingress</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">annotations:</span>
+    <span class="hljs-attr">kubernetes.io/ingress.class:</span> <span class="hljs-string">nginx</span>
+    <span class="hljs-attr">nginx.ingress.kubernetes.io/backend-protocol:</span> <span class="hljs-string">&quot;GRPC&quot;</span>
+  <span class="hljs-attr">labels:</span>
+    <span class="hljs-attr">backend-protocol:</span> <span class="hljs-string">grpc</span>
+    <span class="hljs-attr">environment:</span> <span class="hljs-string">production</span>
+    <span class="hljs-attr">project:</span> <span class="hljs-string">myproject</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">myingress</span>
+  <span class="hljs-attr">namespace:</span> <span class="hljs-string">mynamespace-prod</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">rules:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">host:</span> <span class="hljs-string">mygrpcservice.k8s.example.com</span>
+    <span class="hljs-attr">http:</span>
+      <span class="hljs-attr">paths:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">backend:</span>
+          <span class="hljs-attr">serviceName:</span> <span class="hljs-string">grpcservice</span>
+          <span class="hljs-attr">servicePort:</span> <span class="hljs-string">grpcport</span>
+</code></pre>
+<p>The catch here is that this ingress should have <code>https</code>. If you do automatic https at the nginx controller level or
+you have a <code>TLS</code> section in the ingress definition above, that is up to you. <strong>gRPC over http doesn&#39;t work</strong>.
+Another thing to keep in mind is that your nginx ingress controller needs to be <code>v0.30</code> or above.  </p>
+<pre><code class="hljs language-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;google.golang.org/grpc&quot;</span>
+    grpcCreds <span class="hljs-string">&quot;google.golang.org/grpc/credentials&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// this is the (https) address exposed by the kubernetes ingress.</span>
+    apiAddress := <span class="hljs-string">&quot;mygrpcservice.k8s.example.com:443&quot;</span>
+    config := &amp;tls.Config{
+        <span class="hljs-comment">// This is here only to make it work with self signed certs.</span>
+        InsecureSkipVerify: <span class="hljs-literal">true</span>,
+        NextProtos:         []<span class="hljs-type">string</span>{<span class="hljs-string">&quot;h2&quot;</span>},
+    }
+    creds := grpcCreds.NewTLS(config)
+    conn, err := grpc.Dial(
+            apiAddress,
+            grpc.WithTransportCredentials(creds),
+    )
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-built_in">panic</span>(err)
+    }
+    <span class="hljs-keyword">defer</span> conn.Close()
+    <span class="hljs-comment">//conn can now be used to dial to the gRPC server.</span>
+}
+</code></pre>
+<p>In conclusion, i think that these things would help anyone in their quest of building resilient and
+intuitive APIs but also help developers to understand better how to explore, debug and troubleshoot
+gRPC APIs.</p>
+<p>In the next posts i will also discuss <a href="https://github.com/grpc/grpc-web">grpc-web</a> for enabling a frontend
+app to talk to a gRPC server, <a href="https://github.com/grpc-ecosystem/grpc-gateway">grpc-gateway</a> for
+transcoding REST API calls to gRPC calls and also documenting, through proto annotations, the REST API
+endpoints with the <a href="https://swagger.io/specification/v2/">OpenAPIv2 spec</a> and
+<a href="https://github.com/grpc-ecosystem/go-grpc-middleware">gRPC interceptors</a> as gRPC middleware.</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          id="slugs">
+          <a>#grpc&nbsp;</a>
+          <a>#go&nbsp;</a>
+          <a>#protobuf&nbsp;</a>
+          <a>#reflection&nbsp;</a>
+          <a>#grpcurl&nbsp;</a>
+          <a>#debugging&nbsp;</a>
+          <a>#tips&nbsp;</a>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="container"
+          style="text-align: center; padding-top: 15px">
+          <p>
+            Made by me, compiled with
+            <a href="https://github.com/pi-victor/pi-victor.github.io"
+              >typescript and deno</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</html>
