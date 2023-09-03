@@ -19,18 +19,37 @@ view that as my CV.
 
 ##### Professional interests
 
-> I'm interested in Rust/Go/C++ low level applications in domains where latency
-> and performance matter, such as, but not limited to: (open-source) projects
-> related to containers, distributed systems, or lower-level software such as
-> cgroups, virtualization, or networking stack components. I'd also be open and
-> would like to work in embedded software development.
+Specializing in low-level software engineering with languages like Rust, Go,
+and C++, my primary interests lie in areas requiring high performance and
+minimal latency. These include, but are not limited to, containerization,
+distributed systems, virtualization, and networking stack components.
+Additionally, I am receptive to opportunities in embedded software
+development.
 
-> If the job is not fully remote, I'm ok with being in the office one or two
-> days a week max in the Aargau, Zurich, Luzern region.
+##### Availability:
 
-> Although i have plenty of experience in infrastructure engineering and ops,
-> i'm only open to advise and mentor others in this domain, but not work in it
-> ever again. I am NOT a DevOps/Infra/Cloud engineer.
+I am open to roles that offer a maximum of one or two days per week in an
+office, preferably located in the regions of Aargau, Zurich, or Luzern.
+
+##### Expertise:
+
+While I possess extensive experience in infrastructure engineering and
+operations, my current focus is on providing mentorship and advice in this
+field rather than pursuing hands-on roles. I am specifically not seeking
+positions in DevOps, Infrastructure, or Cloud Engineering.
+
+##### Communication:
+
+I prioritize roles that are clearly defined; as such, I will only respond to
+messages from recruiters that include a comprehensive job description.
+
+##### Technology Preferences:
+
+I have a strong inclination for languages that prioritize performance, and I
+am less enthusiastic about using languages like Java, Ruby, or PHP. I also
+prefer to minimize work involving Terraform, YAML files, or CI pipelines in
+Groovy.
+
 
 * Remote - Part time contracting/consulting work 
 * Remote - Full time opportunities if they match the `interested in`
@@ -59,20 +78,7 @@ NOTE:
 
 <details>
   <summary>Details...</summary>
-  I'm involved with developing and maintaining the update system for detectors
-  (Rust, Go, Kubernetes) and have written a couple of our in-house UIs in Vue. 
-  I'm also working on the next generation viewer for detector image analysis
-  (Python, Qt) and i'm involved with our releases by maintaining our release
-  CI Pipeline.  
-
-  From time to time i rewrite things i hate, like bazel rules.  
-  I've helped update legacy provisioning tools for detectors. And created 
-  services that connect our detectors to our x-ray systems for testing and 
-  calibration.  
-
-  I've had the opportunity to observe scientific experiments at Diamond Light
-  Source, UK and I've attended seminars for cloud solutions for scientific
-  research at Paul Scherrer Institute.  
+  Responsibilities include development and maintenance of update systems for detectors, using technologies such as Rust, Go, and Kubernetes. Additionally, I have contributed to in-house UI development with Vue, next-generation viewer design for image analysis, and release pipeline maintenance. Occasionally, I refactor legacy systems for improved efficiency.
 </details>
 
 Technologies:  
