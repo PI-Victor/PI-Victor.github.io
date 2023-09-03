@@ -1,14 +1,5 @@
-I'm Victor, and i <3 programming.
-
-> As a software engineer with a focus on infrastructure, I have extensive
-> experience working with Kubernetes. I am proficient in various aspects of
-> engineering, from deploying services on public clouds like AWS to private clouds
-> using Kubernetes, to maintaining infrastructure and improving legacy code.
-> Additionally, I like to develop simple frontend user interfaces for internal
-> use in Vue or React.
 
 ---
-
 ##### Personal info
 
 Name: Victor Palade  
@@ -17,8 +8,8 @@ Born: May 1986
 Country of residence: Switzerland  
 Contact: vicp.hates.spam@cloudflavor.io. <- remove the `.hates.spam`  
 
-I despise social media, so [Github](https://github.com/pi-victor) is the only
-public link i have, but please don't view that as my CV.
+You can find me on [Github](https://github.com/pi-victor) but please don't
+view that as my CV.
 
 | Education:  | Languages |
 |-------------|-----------|
@@ -28,28 +19,35 @@ public link i have, but please don't view that as my CV.
 
 ##### Professional interests
 
-> Mid-level software engineer in Rust/Go or even C++ (i'm willing to pick it up)
-> working on lower level networking or developing, deploying and maintaining
-> distributed services on Kubernetes or AWS/Azure. But i'm willing to dive deep
-> into other things, if they are interesting.  
-> I also like to improve or port legacy systems to new infra.  
+> I'm interested in Rust/Go/C++ low level applications in domains where latency
+> and performance matter, such as, but not limited to: (open-source) projects
+> related to containers, distributed systems, or lower-level software such as
+> cgroups, virtualization, or networking stack components. I'd also be open and
+> would like to work in embedded software development.
+
+> If the job is not fully remote, I'm ok with being in the office one or two
+> days a week max in the Aargau, Zurich, Luzern region.
+
+> Although i have plenty of experience in infrastructure engineering and ops,
+> i'm only open to advise and mentor others in this domain, but not work in it
+> ever again. I am NOT a DevOps/Infra/Cloud engineer.
 
 * Remote - Part time contracting/consulting work 
 * Remote - Full time opportunities if they match the `interested in`
-  description above.   
+  description above.  
 *I favor opportunities that allow home office full time, even if they are on US hours*
 
 
 ##### Tech competencies
 
-Coding: #Rust, #Go, #Javascript, #Typescript, #Python.  
-Infra: #Kubernetes, #AWS, #Ansible, #Terraform, #Docker, #Pulumni.  
+Coding: #Rust, #Go, #Javascript, #Typescript, #Python, #C++  
+Infra: #Kubernetes, #AWS, #Ansible, #Terraform, #Docker 
 CI: #Concourse, #Jenkins, #GitHub, #Gitlab.  
 Linux: #Fedora, #Ubuntu. #LFCSA (I'm also a Linux Foundation Certified System Administrator).  
 SVC: #GitHub, #GitLab, #Bitbucket.  
 Admin: #Confluence, #Trello, #Jira. 
 Monitoring: #Prometheus, #InfluxDB, #Grafana, #Thanos.  
-Misc: #Jfrog-Artifactory, #Kafka.  
+Misc: #Jfrog-Artifactory, #Kafka, #Bazel  
 
 ##### Relevant work experience
 
@@ -66,12 +64,15 @@ NOTE:
   I'm also working on the next generation viewer for detector image analysis
   (Python, Qt) and i'm involved with our releases by maintaining our release
   CI Pipeline.  
+
   From time to time i rewrite things i hate, like bazel rules.  
-  I've helped update legacy provisioning tools for detectors. 
+  I've helped update legacy provisioning tools for detectors. And created 
+  services that connect our detectors to our x-ray systems for testing and 
+  calibration.  
 
   I've had the opportunity to observe scientific experiments at Diamond Light
-  Source, UK and I've attended seminars for cloud solutions for scientific research
-  at Paul Scherrer Institute.
+  Source, UK and I've attended seminars for cloud solutions for scientific
+  research at Paul Scherrer Institute.  
 </details>
 
 Technologies:  

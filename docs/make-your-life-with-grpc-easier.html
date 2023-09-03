@@ -67,11 +67,11 @@ be achieved in two ways:</p>
 </ul>
 <h4 id="enabling-and-exploring-with-reflection">Enabling and exploring with reflection</h4>
 <p>Given the following protobuf API:</p>
-<pre><code class="hljs language-proto">service StorageApiService {
-    rpc GetBuckets(GetBucketsRequest) returns (GetBucketsResponse) {}
-    message GetBucketRequest {}
-    message GetBucketsResponse {
-        repeated Bucket buckets = 1;
+<pre><code class="hljs language-proto"><span class="hljs-keyword">service </span><span class="hljs-title class_">StorageApiService</span> {
+    <span class="hljs-function"><span class="hljs-keyword">rpc</span> GetBuckets(GetBucketsRequest) <span class="hljs-keyword">returns</span> (GetBucketsResponse) </span>{}
+    <span class="hljs-keyword">message </span><span class="hljs-title class_">GetBucketRequest</span> {}
+    <span class="hljs-keyword">message </span><span class="hljs-title class_">GetBucketsResponse</span> {
+        <span class="hljs-keyword">repeated</span> Bucket buckets = <span class="hljs-number">1</span>;
     }
 }
 </code></pre>
