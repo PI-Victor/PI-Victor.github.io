@@ -163,8 +163,28 @@ async function generateIndex(posts: Post[]) {
         reference: "personal-info",
       },
       {
-        title: "Professional interests",
-        reference: "professional-interests",
+        title: "What I'm Into",
+        reference: "what-im-into",
+      },
+      {
+        title: "Where and When I Work Best",
+        reference: "where-and-when-i-work-best",
+      },
+      {
+        title: "What I've been up to",
+        reference: "what-ive-been-up-to",
+      },
+      {
+        title: "What Catches My Eye",
+        reference: "what-catches-my-eye",
+      },
+      {
+        title: "What I'm Looking For",
+        reference: "what-im-looking-for",
+      },
+      {
+        title: "Tech Preferences",
+        reference: "tech-preferences",
       },
       {
         title: "Tech competencies",
