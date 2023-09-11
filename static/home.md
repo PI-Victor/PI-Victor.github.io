@@ -17,39 +17,34 @@ view that as my CV.
 | Some college education | German - basic |
 | Various online courses | Italian - a bit above basic |
 
-##### Professional interests
+##### What I'm Into
+Hey there! I'm big on low-level software engineering, having a blast with
+languages like Rust, Go, and C++. I'm always excited to dive into
+high-performance projects—think containerization, distributed systems, and all
+that good stuff. And hey, I'm not opposed to getting my hands dirty with some
+embedded software development.
 
-Specializing in low-level software engineering with languages like Rust, Go,
-and C++, my primary interests lie in areas requiring high performance and
-minimal latency. These include, but are not limited to, containerization,
-distributed systems, virtualization, and networking stack components.
-Additionally, I am receptive to opportunities in embedded software
-development.
+##### Where and When I Work Best
+I'm hoping to find something where I'm in the office a day or two a week,
+ideally hanging out in regions around Aargau, Zurich, or Luzern.
 
-##### Availability:
+##### What I've Been Up To
+I've spent plenty of time in infrastructure engineering and operations, but I'm
+steering towards roles where I can really dive into optimizing system
+performances and memory utilization. I'm ready to lend my expertise more on the
+strategy side of things, moving away from the hands-on roles I've had in DevOps
+and Cloud Engineering.
 
-I am open to roles that offer a maximum of one or two days per week in an
-office, preferably located in the regions of Aargau, Zurich, or Luzern.
+##### What Catches My Eye
+To the recruiters out there — let's keep it straightforward and detailed with
+the job descriptions. It sets the stage for a solid, productive conversation.
 
-##### Expertise:
+##### Tech Preferences
+I've got a thing for efficient and powerful languages — Rust, Go, and C++ are
+my go-to's right now. I'm eager to use them to whip up solutions that are both
+powerful and efficient.
 
-While I possess extensive experience in infrastructure engineering and
-operations, my current focus is on providing mentorship and advice in this
-field rather than pursuing hands-on roles. I am specifically not seeking
-positions in DevOps, Infrastructure, or Cloud Engineering.
-
-##### Communication:
-
-I prioritize roles that are clearly defined; as such, I will only respond to
-messages from recruiters that include a comprehensive job description.
-
-##### Technology Preferences:
-
-I have a strong inclination for languages that prioritize performance, and I
-am less enthusiastic about using languages like Java, Ruby, or PHP. I also
-prefer to minimize work involving Terraform, YAML files, or CI pipelines in
-Groovy.
-
+##### What I'm Looking For
 
 * Remote - Part time contracting/consulting work 
 * Remote - Full time opportunities if they match the `interested in`
@@ -78,7 +73,13 @@ NOTE:
 
 <details>
   <summary>Details...</summary>
-  Responsibilities include development and maintenance of update systems for detectors, using technologies such as Rust, Go, and Kubernetes. Additionally, I have contributed to in-house UI development with Vue, next-generation viewer design for image analysis, and release pipeline maintenance. Occasionally, I refactor legacy systems for improved efficiency.
+
+  Responsibilities include development and maintenance of update systems for
+  detectors, using technologies such as Rust, Go, and Kubernetes. Additionally,
+  I have contributed to in-house UI development with Vue, next-generation
+  viewer design for image analysis, and release pipeline maintenance.
+  Occasionally, I refactor legacy systems for improved efficiency.
+
 </details>
 
 Technologies:  
@@ -91,10 +92,12 @@ Technologies:
 
 <details>
   <summary>Details...</summary>
+
   In my role, I designed and implemented AWS architecture for adidas ecom
   platform using Terraform. I also created and implemented Continuous
   Integration (CI) pipelines utilizing Jenkins and AWS. Additionally, I
   maintained Java and NodeJS services on Kubernetes with Kafka integration.
+
 </details>
 
 Technologies:  
@@ -107,13 +110,15 @@ Technologies:
 
 <details>
   <summary>Details...</summary>
-  As a member of the Developer Experience team, my primary responsibility was to
-  enhance features and resolve issues in OpenShift's build system, which is
+
+  As a member of the Developer Experience team, my primary responsibility was
+  to enhance features and resolve issues in OpenShift's build system, which is
   specifically designed for developers and streamlining DevOps. I was also
   responsible for maintaining some of the "Getting started" examples, including
   nodejs and django, among others. Additionally, I contributed to the team's
   primary build application, source-to-image, and created documentation to
   support the team's efforts.
+
 </details>
 
 Technologies:  
@@ -127,6 +132,7 @@ Network Administrator:
 
 <details>
   <summary>Details...</summary>
+
   My primary responsibilities involved monitoring data services, data
   accelerators, API gateways, MMS, and prepaid platforms, with a focus on
   troubleshooting application-related issues, provisioning, service validation,
@@ -137,6 +143,7 @@ Network Administrator:
   for our team. I also updated parts of the monitoring system for legacy
   platforms with high data traffic. Finally, I created documentation for
   server-side configuration and setup using Confluence.
+
 </details>
 
 Technologies:  
@@ -147,6 +154,7 @@ Network Support specialist:
 
 <details>
   <summary>Details...</summary>
+
   I was responsible for documenting changes before and after vendor work on
   BTS/NodeB/eNodeB sites. I utilized MoShell scripting to extract KPIs, RSSIs,
   and VSWR information from a vendor framework for Ericsson UMTS and LTE cell
@@ -155,6 +163,7 @@ Network Support specialist:
   Nokia/ALU/Siemens/Ericsson/Nortel hardware with Confluence. As part of my
   professional development, I attended courses on GSM/UMTS/LTE technologies from
   vendors including Alcatel-Lucent, Nokia, Siemens, Nortel, and Ericsson.
+
 </details>
 
 Technologies:  
@@ -166,8 +175,10 @@ Technologies:
 
 <details>
   <summary>Details...</summary>
+
   Development of accounting, web and insurance solutions for medium and small
   companies, with technologies such as Visual FoxPro, MSSQL, HTML, etc.
+
 </details>
 
 Technologies:
