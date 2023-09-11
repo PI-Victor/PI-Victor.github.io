@@ -34,6 +34,17 @@ async function cleanUp() {
   }
 
   await Deno.mkdir(publicDir);
+
+  try {
+    const encoder = new TextEncoder();
+
+    await Deno.writeFile(
+      `${publicDir}/CNAME`,
+      encoder.encode("victor.cloudflavor.io"),
+    );
+  } catch (e) {
+    throw new Error(`failed to write CNAME file: ${e}}`);
+  }
 }
 
 class Post {
